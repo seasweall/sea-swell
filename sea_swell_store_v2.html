@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --navy:#1A3C6E;--sand:#F5F0E8;--charcoal:#1C1C1A;
+  --gold:#C8A96E;--white:#FFFFFF;--navy-dark:#0F2347;--navy-mid:#224d8a;
+}
+body{font-family:'Inter',sans-serif;background:var(--charcoal);color:var(--sand);overflow-x:hidden;}
+
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(28,28,26,0.96);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(200,169,110,0.2);
+  padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;
+}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:0.1em;color:var(--sand);}
+.nav-logo span{color:var(--gold);}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{color:rgba(245,240,232,0.7);text-decoration:none;font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;transition:color 0.2s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-btn{background:var(--gold);color:var(--charcoal);border:none;padding:0.5rem 1.2rem;font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:opacity 0.2s;}
+.nav-btn:hover{opacity:0.85;}
+
+/* HERO */
+.hero{
+  min-height:92vh;
+  background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 50%,var(--navy-mid) 100%);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;padding:4rem 2rem;
+}
+.hero-bg-waves{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 70% 120%,rgba(200,169,110,0.12) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at 20% -10%,rgba(245,240,232,0.05) 0%,transparent 50%);}
+.hero-texture{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 40px,rgba(255,255,255,0.015) 40px,rgba(255,255,255,0.015) 41px);}
+.hero-content{position:relative;text-align:center;max-width:860px;}
+.hero-eyebrow{font-size:0.7rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;gap:1rem;}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';display:block;width:40px;height:1px;background:var(--gold);opacity:0.5;}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,10vw,8rem);line-height:0.9;letter-spacing:0.02em;color:var(--sand);margin-bottom:0.5rem;}
+.hero-title .accent{color:var(--gold);}
+.hero-subtitle{font-size:clamp(0.9rem,2vw,1.3rem);color:rgba(245,240,232,0.6);font-weight:300;letter-spacing:0.05em;margin:1.5rem 0 2.5rem;}
+.hero-ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.btn-primary{background:var(--gold);color:var(--charcoal);border:none;padding:1rem 2.5rem;font-size:0.8rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:all 0.2s;}
+.btn-primary:hover{background:var(--sand);}
+.btn-outline{background:transparent;color:var(--sand);border:1px solid rgba(245,240,232,0.4);padding:1rem 2.5rem;font-size:0.8rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:all 0.2s;}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+.hero-badges{display:flex;gap:2rem;justify-content:center;margin-top:3rem;padding-top:3rem;border-top:1px solid rgba(245,240,232,0.1);flex-wrap:wrap;}
+.hero-badge{text-align:center;}
+.hero-badge .num{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--gold);}
+.hero-badge .label{font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,240,232,0.5);margin-top:0.2rem;}
+
+/* TRUST BAR */
+.trust-bar{background:var(--navy);padding:1rem 2rem;display:flex;align-items:center;justify-content:center;gap:3rem;flex-wrap:wrap;border-bottom:1px solid rgba(200,169,110,0.15);}
+.trust-item{display:flex;align-items:center;gap:0.6rem;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(245,240,232,0.7);}
+.trust-icon{color:var(--gold);}
+
+/* SECTION BASE */
+section{padding:5rem 2rem;}
+.section-eyebrow{font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:0.8rem;display:flex;align-items:center;gap:0.8rem;}
+.section-eyebrow::after{content:'';flex:1;max-width:60px;height:1px;background:var(--gold);opacity:0.4;}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);line-height:1;letter-spacing:0.03em;color:var(--sand);margin-bottom:1rem;}
+
+/* ===== VS SECTION — sempre lado a lado ===== */
+.vs-section{background:var(--charcoal);padding:5rem 1rem;}
+.vs-inner{max-width:1000px;margin:0 auto;}
+.vs-header{text-align:center;margin-bottom:3rem;padding:0 1rem;}
+.vs-header .section-eyebrow{justify-content:center;}
+.vs-header .section-eyebrow::after{display:none;}
+.vs-header .section-eyebrow::before{content:'';flex:1;max-width:60px;height:1px;background:var(--gold);opacity:0.4;}
+.vs-header p{color:rgba(245,240,232,0.55);max-width:500px;margin:0 auto;font-size:0.85rem;line-height:1.7;}
+
+/* Grid sempre 3 colunas: them | divider | us */
+.vs-cards{
+  display:grid;
+  grid-template-columns:1fr 44px 1fr;
+  gap:0;
+  align-items:stretch;
+  max-width:860px;
+  margin:0 auto;
+}
+.vs-card{padding:1.5rem 1.2rem;display:flex;flex-direction:column;gap:0.9rem;}
+.vs-card.them{background:#1a1a1a;border:1px solid rgba(255,255,255,0.06);border-right:none;border-radius:8px 0 0 8px;}
+.vs-card.us{background:var(--navy);border:1px solid rgba(200,169,110,0.3);border-left:none;border-radius:0 8px 8px 0;position:relative;}
+.vs-card.us::before{
+  content:'SEA SWELL';
+  position:absolute;top:-1px;left:50%;transform:translateX(-50%);
+  background:var(--gold);color:var(--charcoal);
+  font-size:0.55rem;font-weight:700;letter-spacing:0.2em;
+  padding:0.25rem 0.8rem;border-radius:0 0 4px 4px;white-space:nowrap;
+}
+.vs-divider{display:flex;align-items:center;justify-content:center;background:var(--charcoal);}
+.vs-vs-badge{
+  width:36px;height:36px;border-radius:50%;
+  background:var(--gold);color:var(--charcoal);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue',sans-serif;font-size:1rem;
+  box-shadow:0 0 0 3px var(--charcoal);
+  flex-shrink:0;
+}
+.vs-card-label{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,240,232,0.4);padding-bottom:0.7rem;border-bottom:1px solid rgba(255,255,255,0.06);}
+.vs-card.us .vs-card-label{color:var(--gold);border-color:rgba(200,169,110,0.2);}
+.vs-row{display:flex;align-items:flex-start;gap:0.5rem;}
+.vs-icon{width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.6rem;flex-shrink:0;margin-top:2px;}
+.vs-icon.bad{background:rgba(255,80,80,0.12);color:#ff5050;}
+.vs-icon.good{background:rgba(200,169,110,0.15);color:var(--gold);}
+.vs-row-text{font-size:0.78rem;line-height:1.5;color:rgba(245,240,232,0.75);}
+.vs-card.us .vs-row-text{color:var(--sand);}
+
+/* Shirt compare — sempre 2 colunas */
+.vs-shirt-compare{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  max-width:720px;margin:2.5rem auto 0;
+  border-radius:8px;overflow:hidden;
+  border:1px solid rgba(255,255,255,0.06);
+}
+.vs-shirt-side{padding:1.5rem 1rem;text-align:center;}
+.vs-shirt-side.old{background:#111;}
+.vs-shirt-side.new{background:var(--navy);}
+.shirt-visual{width:90px;height:110px;margin:0 auto 1rem;position:relative;}
+.shirt-body{position:absolute;top:15px;left:8px;right:8px;bottom:0;border-radius:3px 3px 6px 6px;}
+.shirt-collar{position:absolute;top:0;left:50%;transform:translateX(-50%);width:28px;height:18px;border-radius:0 0 14px 14px;}
+.shirt-sleeve-l,.shirt-sleeve-r{position:absolute;top:15px;width:16px;height:34px;border-radius:3px;}
+.shirt-sleeve-l{left:-5px;transform:rotate(8deg);transform-origin:top right;}
+.shirt-sleeve-r{right:-5px;transform:rotate(-8deg);transform-origin:top left;}
+.old .shirt-body,.old .shirt-sleeve-l,.old .shirt-sleeve-r{background:#2a2a2a;}
+.old .shirt-collar{background:#222;}
+.new .shirt-body,.new .shirt-sleeve-l,.new .shirt-sleeve-r{background:var(--navy);}
+.new .shirt-collar{background:var(--navy-dark);}
+.shirt-print{position:absolute;top:38px;left:50%;transform:translateX(-50%);font-family:'Bebas Neue',sans-serif;font-size:0.75rem;letter-spacing:0.1em;color:var(--gold);white-space:nowrap;}
+.old-pill{display:inline-block;background:#2a2a2a;padding:0.15rem 0.45rem;border-radius:10px;font-size:0.58rem;color:#777;margin:0.15rem;}
+.new-pill{display:inline-block;background:rgba(200,169,110,0.15);padding:0.15rem 0.45rem;border-radius:10px;font-size:0.58rem;color:var(--gold);margin:0.15rem;}
+.vs-shirt-label{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(245,240,232,0.4);margin-bottom:0.4rem;}
+.vs-shirt-title{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.05em;color:var(--sand);margin-bottom:0.7rem;}
+
+/* ===== CARROSSEL DE PRODUTOS ===== */
+.products-section{background:#161614;padding:5rem 0;}
+.products-inner{max-width:1100px;margin:0 auto;padding:0 2rem;}
+.products-header{margin-bottom:2rem;}
+.carousel-wrap{position:relative;}
+.carousel-track-outer{overflow:hidden;}
+.carousel-track{
+  display:flex;gap:1.25rem;
+  transition:transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+  will-change:transform;
+}
+.product-card{
+  flex:0 0 280px;
+  background:#1e1e1c;
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:6px;overflow:hidden;
+  transition:border-color 0.2s,transform 0.2s;
+  cursor:pointer;
+}
+.product-card:hover{border-color:rgba(200,169,110,0.3);transform:translateY(-3px);}
+.product-img{
+  aspect-ratio:3/4;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.product-img.p1{background:linear-gradient(160deg,#1a2a4a 0%,#0f1d35 100%);}
+.product-img.p2{background:linear-gradient(160deg,#2a2418 0%,#1a1610 100%);}
+.product-img.p3{background:linear-gradient(160deg,#1e1e1e 0%,#111 100%);}
+.product-img.p4{background:linear-gradient(160deg,#1a3040 0%,#0d1e2a 100%);}
+.product-img.p5{background:linear-gradient(160deg,#1e1428 0%,#110d1a 100%);}
+.shirt-preview{position:relative;width:90px;height:110px;}
+.sp-body{position:absolute;top:15px;left:8px;right:8px;bottom:0;border-radius:3px 3px 6px 6px;}
+.sp-collar{position:absolute;top:0;left:50%;transform:translateX(-50%);width:26px;height:17px;border-radius:0 0 13px 13px;}
+.sp-sl,.sp-sr{position:absolute;top:15px;width:16px;height:34px;border-radius:3px;}
+.sp-sl{left:-5px;transform:rotate(8deg);transform-origin:top right;}
+.sp-sr{right:-5px;transform:rotate(-8deg);transform-origin:top left;}
+.sp-print{position:absolute;top:38px;left:50%;transform:translateX(-50%);font-family:'Bebas Neue',sans-serif;font-size:0.7rem;white-space:nowrap;}
+
+.p1 .sp-body,.p1 .sp-sl,.p1 .sp-sr{background:#1A3C6E;}
+.p1 .sp-collar{background:#0F2347;}.p1 .sp-print{color:#C8A96E;}
+.p2 .sp-body,.p2 .sp-sl,.p2 .sp-sr{background:#C8A96E;}
+.p2 .sp-collar{background:#a8893e;}.p2 .sp-print{color:#1C1C1A;}
+.p3 .sp-body,.p3 .sp-sl,.p3 .sp-sr{background:#F5F0E8;}
+.p3 .sp-collar{background:#ddd;}.p3 .sp-print{color:#1A3C6E;}
+.p4 .sp-body,.p4 .sp-sl,.p4 .sp-sr{background:#1A3C6E;}
+.p4 .sp-collar{background:#0F2347;}.p4 .sp-print{color:#F5F0E8;}
+.p5 .sp-body,.p5 .sp-sl,.p5 .sp-sr{background:#3d2a5a;}
+.p5 .sp-collar{background:#2a1d3e;}.p5 .sp-print{color:#C8A96E;}
+
+.badge-new{position:absolute;top:12px;left:12px;background:var(--gold);color:var(--charcoal);font-size:0.55rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.25rem 0.6rem;border-radius:2px;}
+.badge-hot{position:absolute;top:12px;left:12px;background:#c0392b;color:#fff;font-size:0.55rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.25rem 0.6rem;border-radius:2px;}
+.product-info{padding:1.2rem;}
+.product-name{font-size:0.85rem;font-weight:500;color:var(--sand);margin-bottom:0.3rem;}
+.product-sub{font-size:0.72rem;color:rgba(245,240,232,0.45);letter-spacing:0.05em;margin-bottom:0.8rem;}
+.product-price{display:flex;align-items:baseline;gap:0.6rem;}
+.price-current{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--gold);letter-spacing:0.03em;}
+.price-old{font-size:0.75rem;color:rgba(245,240,232,0.3);text-decoration:line-through;}
+.product-cta{display:block;margin-top:0.8rem;background:transparent;border:1px solid rgba(200,169,110,0.3);color:var(--gold);padding:0.55rem;font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:all 0.2s;width:100%;text-align:center;}
+.product-cta:hover{background:var(--gold);color:var(--charcoal);}
+
+/* Setas do carrossel */
+.carousel-controls{display:flex;align-items:center;justify-content:flex-end;gap:0.6rem;margin-top:1.5rem;}
+.carousel-arrow{
+  width:44px;height:44px;border-radius:50%;
+  background:transparent;border:1px solid rgba(200,169,110,0.35);
+  color:var(--gold);font-size:1.1rem;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:all 0.2s;
+  flex-shrink:0;
+}
+.carousel-arrow:hover{background:var(--gold);color:var(--charcoal);border-color:var(--gold);}
+.carousel-arrow:disabled{opacity:0.25;cursor:default;}
+.carousel-dots{display:flex;gap:0.4rem;align-items:center;margin-right:auto;}
+.dot{width:6px;height:6px;border-radius:50%;background:rgba(200,169,110,0.25);transition:all 0.2s;cursor:pointer;}
+.dot.active{background:var(--gold);width:18px;border-radius:3px;}
+
+/* MANIFESTO */
+.manifesto{background:var(--navy);padding:6rem 2rem;text-align:center;position:relative;overflow:hidden;}
+.manifesto::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 100%,rgba(200,169,110,0.08) 0%,transparent 60%);}
+.manifesto-inner{max-width:700px;margin:0 auto;position:relative;}
+.quote-mark{font-family:'Bebas Neue',sans-serif;font-size:6rem;color:var(--gold);opacity:0.2;line-height:0.5;display:block;margin-bottom:1rem;}
+.manifesto-text{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.15;letter-spacing:0.03em;color:var(--sand);margin-bottom:2rem;}
+.manifesto-text .gold{color:var(--gold);}
+.manifesto-sub{font-size:0.9rem;line-height:1.8;color:rgba(245,240,232,0.55);max-width:500px;margin:0 auto 2.5rem;}
+
+/* INSTAGRAM */
+.insta-section{background:#111110;padding:5rem 2rem;}
+.insta-inner{max-width:1100px;margin:0 auto;}
+.insta-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:2rem;flex-wrap:wrap;gap:1rem;}
+.insta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;}
+.insta-tile{aspect-ratio:1;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:opacity 0.2s;position:relative;overflow:hidden;}
+.insta-tile:hover .insta-overlay{opacity:1;}
+.insta-tile:nth-child(1){background:linear-gradient(135deg,#1A3C6E,#0F2347);}
+.insta-tile:nth-child(2){background:linear-gradient(135deg,#2a2418,#1a1610);}
+.insta-tile:nth-child(3){background:linear-gradient(135deg,#1e2a1e,#101810);}
+.insta-tile:nth-child(4){background:linear-gradient(135deg,#1a1a2e,#0f0f1e);}
+.insta-tile:nth-child(5){background:linear-gradient(135deg,#2a1a18,#1a0f0e);}
+.insta-tile:nth-child(6){background:linear-gradient(135deg,#1A3C6E,#224d8a);}
+.insta-tile:nth-child(7){background:linear-gradient(135deg,#2a2418,#C8A96E44);}
+.insta-tile:nth-child(8){background:linear-gradient(135deg,#1e1e1e,#2a2a2a);}
+.insta-overlay{position:absolute;inset:0;background:rgba(200,169,110,0.25);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.2s;font-size:1.2rem;color:var(--sand);}
+.insta-tile-text{position:relative;z-index:1;font-family:'Bebas Neue',sans-serif;font-size:0.65rem;letter-spacing:0.15em;color:rgba(245,240,232,0.15);}
+
+/* FOOTER */
+footer{background:var(--navy-dark);padding:3rem 2rem 1.5rem;border-top:1px solid rgba(200,169,110,0.15);}
+.footer-inner{max-width:1100px;margin:0 auto;}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;margin-bottom:3rem;}
+.footer-brand .logo{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:0.1em;color:var(--sand);margin-bottom:0.5rem;}
+.footer-brand .logo span{color:var(--gold);}
+.footer-brand p{font-size:0.82rem;line-height:1.7;color:rgba(245,240,232,0.45);max-width:280px;}
+.footer-col h4{font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
+.footer-col ul{list-style:none;}
+.footer-col ul li{margin-bottom:0.6rem;}
+.footer-col ul li a{font-size:0.82rem;color:rgba(245,240,232,0.5);text-decoration:none;transition:color 0.2s;}
+.footer-col ul li a:hover{color:var(--sand);}
+.footer-bottom{padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:space-between;font-size:0.72rem;color:rgba(245,240,232,0.3);flex-wrap:wrap;gap:0.5rem;}
+.footer-bottom a{color:rgba(245,240,232,0.3);text-decoration:none;}
+.footer-bottom a:hover{color:var(--gold);}
+
+/* WHATSAPP */
+.whatsapp-float{position:fixed;bottom:2rem;right:2rem;width:52px;height:52px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:999;box-shadow:0 4px 16px rgba(37,211,102,0.3);transition:transform 0.2s;}
+.whatsapp-float:hover{transform:scale(1.08);}
+.whatsapp-float svg{width:26px;height:26px;fill:white;}
+
+/* MOBILE */
+@media(max-width:700px){
+  .nav-links{display:none;}
+  .footer-top{grid-template-columns:1fr;gap:2rem;}
+  .insta-grid{grid-template-columns:repeat(2,1fr);}
+  .hero-badges{gap:1.5rem;}
+  /* VS cards: mantém lado a lado no mobile com texto menor */
+  .vs-cards{max-width:100%;}
+  .vs-card{padding:1rem 0.7rem;gap:0.65rem;}
+  .vs-row-text{font-size:0.68rem;}
+  .vs-shirt-compare{max-width:100%;}
+  .vs-shirt-side{padding:1rem 0.7rem;}
+  .trust-bar{gap:1rem;}
+  .trust-item{font-size:0.65rem;}
+  .product-card{flex:0 0 230px;}
+}
+@media(max-width:400px){
+  .vs-card{padding:0.8rem 0.5rem;}
+  .vs-row-text{font-size:0.62rem;}
+  .vs-vs-badge{width:28px;height:28px;font-size:0.75rem;}
+  .product-card{flex:0 0 200px;}
+}
+</style>
+</head>
+<body>
+
+<div class="whatsapp-float" onclick="openLink('https://wa.me/5547999999999')">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">SEA <span>SWELL</span></div>
+  <ul class="nav-links">
+    <li><a href="#">Coleção</a></li>
+    <li><a href="#">Estampas</a></li>
+    <li><a href="#">Sobre</a></li>
+    <li><a href="#">Instagram</a></li>
+  </ul>
+  <button class="nav-btn">Ver Kits</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-waves"></div>
+  <div class="hero-texture"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Streetwear Litorâneo</div>
+    <h1 class="hero-title">VISTA O<br><span class="accent">MAR</span></h1>
+    <p class="hero-subtitle">Peças com atitude de quem vive na costa.<br>Corte oversized, estampas exclusivas, qualidade que dura.</p>
+    <div class="hero-ctas">
+      <button class="btn-primary">Ver coleção</button>
+      <button class="btn-outline">Nossa história</button>
+    </div>
+    <div class="hero-badges">
+      <div class="hero-badge"><div class="num">100%</div><div class="label">Algodão premium</div></div>
+      <div class="hero-badge"><div class="num">48H</div><div class="label">Envio expresso</div></div>
+      <div class="hero-badge"><div class="num">1ª</div><div class="label">Troca gratuita</div></div>
+      <div class="hero-badge"><div class="num">6x</div><div class="label">Sem juros</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-icon">✦</span> Frete grátis acima de R$ 299</div>
+  <div class="trust-item"><span class="trust-icon">✦</span> Primeira troca gratuita</div>
+  <div class="trust-item"><span class="trust-icon">✦</span> Pagamento em até 6x sem juros</div>
+  <div class="trust-item"><span class="trust-icon">✦</span> Enviamos para todo o Brasil</div>
+</div>
+
+<!-- VS SECTION -->
+<div class="vs-section">
+  <div class="vs-inner">
+    <div class="vs-header">
+      <div class="section-eyebrow" style="justify-content:center;">Sea Swell x Concorrência</div>
+      <h2 class="section-title" style="font-size:clamp(1.8rem,5vw,3rem);">A diferença que você<br>vai sentir na pele</h2>
+      <p>A maioria das marcas vende a mesma camiseta. A Sea Swell entrega o que as outras prometem.</p>
+    </div>
+
+    <div class="vs-cards">
+      <div class="vs-card them">
+        <div class="vs-card-label">Outras marcas</div>
+        <div class="vs-row"><div class="vs-icon bad">✕</div><div class="vs-row-text">Encolhe após as primeiras lavagens</div></div>
+        <div class="vs-row"><div class="vs-icon bad">✕</div><div class="vs-row-text">Desbota com o sol e o sal</div></div>
+        <div class="vs-row"><div class="vs-icon bad">✕</div><div class="vs-row-text">Tecido fino que gruda no corpo</div></div>
+        <div class="vs-row"><div class="vs-icon bad">✕</div><div class="vs-row-text">Estampas genéricas sem identidade</div></div>
+        <div class="vs-row"><div class="vs-icon bad">✕</div><div class="vs-row-text">Acabamento que desfia rápido</div></div>
+        <div class="vs-row"><div class="vs-icon bad">✕</div><div class="vs-row-text">Corte que não valoriza o corpo</div></div>
+      </div>
+      <div class="vs-divider"><div class="vs-vs-badge">VS</div></div>
+      <div class="vs-card us">
+        <div class="vs-card-label">Sea Swell</div>
+        <div class="vs-row"><div class="vs-icon good">✓</div><div class="vs-row-text">Encolhimento zero — lavou, manteve</div></div>
+        <div class="vs-row"><div class="vs-icon good">✓</div><div class="vs-row-text">Pigmento fixo, resiste ao dia na praia</div></div>
+        <div class="vs-row"><div class="vs-icon good">✓</div><div class="vs-row-text">Gramatura encorpada, caimento perfeito</div></div>
+        <div class="vs-row"><div class="vs-icon good">✓</div><div class="vs-row-text">Estampas exclusivas do litoral</div></div>
+        <div class="vs-row"><div class="vs-icon good">✓</div><div class="vs-row-text">Costura reforçada que dura</div></div>
+        <div class="vs-row"><div class="vs-icon good">✓</div><div class="vs-row-text">Oversized pensado pro corpo brasileiro</div></div>
+      </div>
+    </div>
+
+    <div class="vs-shirt-compare">
+      <div class="vs-shirt-side old">
+        <div class="vs-shirt-label">Após 5 lavagens</div>
+        <div class="vs-shirt-title">Outras marcas</div>
+        <div class="shirt-visual old">
+          <div class="shirt-sleeve-l"></div><div class="shirt-sleeve-r"></div>
+          <div class="shirt-body" style="background:#1e1e1e;transform:scale(0.86);transform-origin:center bottom;"></div>
+          <div class="shirt-collar" style="background:#181818;"></div>
+        </div>
+        <div><span class="old-pill">encolheu</span><span class="old-pill">desbotou</span><span class="old-pill">bolinhas</span></div>
+      </div>
+      <div class="vs-shirt-side new">
+        <div class="vs-shirt-label">Após 5 lavagens</div>
+        <div class="vs-shirt-title">Sea Swell</div>
+        <div class="shirt-visual new">
+          <div class="shirt-sleeve-l"></div><div class="shirt-sleeve-r"></div>
+          <div class="shirt-body"></div>
+          <div class="shirt-collar"></div>
+          <div class="shirt-print">SS</div>
+        </div>
+        <div><span class="new-pill">igual ao 1º dia</span><span class="new-pill">cor viva</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUTOS — CARROSSEL -->
+<section class="products-section">
+  <div class="products-inner">
+    <div class="products-header">
+      <div class="section-eyebrow">Coleção atual</div>
+      <h2 class="section-title">Escolha seu drop</h2>
+    </div>
+  </div>
+  <div class="products-inner" style="padding-right:0;">
+    <div class="carousel-wrap">
+      <div class="carousel-track-outer" id="carouselOuter">
+        <div class="carousel-track" id="carouselTrack">
+
+          <div class="product-card">
+            <div class="product-img p1">
+              <div class="badge-new">Novo</div>
+              <div class="shirt-preview"><div class="sp-sl"></div><div class="sp-sr"></div><div class="sp-body"></div><div class="sp-collar"></div><div class="sp-print" style="color:#C8A96E">SWELL</div></div>
+            </div>
+            <div class="product-info">
+              <div class="product-name">Oversized Wave Navy</div>
+              <div class="product-sub">Estampa exclusiva · Algodão 270g</div>
+              <div class="product-price"><span class="price-current">R$ 159</span><span class="price-old">R$ 199</span></div>
+              <button class="product-cta">Comprar via Instagram</button>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-img p2">
+              <div class="badge-hot">🔥 Top</div>
+              <div class="shirt-preview"><div class="sp-sl"></div><div class="sp-sr"></div><div class="sp-body"></div><div class="sp-collar"></div><div class="sp-print" style="color:#1C1C1A">SEA</div></div>
+            </div>
+            <div class="product-info">
+              <div class="product-name">Oversized Gold Coast</div>
+              <div class="product-sub">Lisa premium · Caramelo areia</div>
+              <div class="product-price"><span class="price-current">R$ 149</span></div>
+              <button class="product-cta">Comprar via Instagram</button>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-img p3">
+              <div class="shirt-preview"><div class="sp-sl"></div><div class="sp-sr"></div><div class="sp-body"></div><div class="sp-collar"></div><div class="sp-print" style="color:#1A3C6E">SS·24</div></div>
+            </div>
+            <div class="product-info">
+              <div class="product-name">Oversized Off White</div>
+              <div class="product-sub">Estampa minimalista · Areia</div>
+              <div class="product-price"><span class="price-current">R$ 149</span><span class="price-old">R$ 179</span></div>
+              <button class="product-cta">Comprar via Instagram</button>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-img p4">
+              <div class="badge-new">Novo</div>
+              <div class="shirt-preview"><div class="sp-sl"></div><div class="sp-sr"></div><div class="sp-body"></div><div class="sp-collar"></div><div class="sp-print" style="color:#F5F0E8">COAST</div></div>
+            </div>
+            <div class="product-info">
+              <div class="product-name">Boxy Tide Drop</div>
+              <div class="product-sub">Corte boxy · Azul maré</div>
+              <div class="product-price"><span class="price-current">R$ 169</span></div>
+              <button class="product-cta">Comprar via Instagram</button>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-img p5">
+              <div class="shirt-preview"><div class="sp-sl"></div><div class="sp-sr"></div><div class="sp-body"></div><div class="sp-collar"></div><div class="sp-print" style="color:#C8A96E">DEEP</div></div>
+            </div>
+            <div class="product-info">
+              <div class="product-name">Oversized Deep Tide</div>
+              <div class="product-sub">Estampa noturna · Roxo escuro</div>
+              <div class="product-price"><span class="price-current">R$ 159</span></div>
+              <button class="product-cta">Comprar via Instagram</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="carousel-controls" style="padding:0 2rem 0 0;">
+        <div class="carousel-dots" id="carouselDots"></div>
+        <button class="carousel-arrow" id="btnPrev" aria-label="Anterior">&#8592;</button>
+        <button class="carousel-arrow" id="btnNext" aria-label="Próximo">&#8594;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto">
+  <div class="manifesto-inner">
+    <span class="quote-mark">"</span>
+    <h2 class="manifesto-text">Não é só roupa.<br>É <span class="gold">o jeito que você<br>enfrenta o dia.</span></h2>
+    <p class="manifesto-sub">A Sea Swell nasceu na costa, com a identidade de quem prefere o vento salgado ao ar condicionado. Cada peça carrega a energia do litoral — livre, crua, sem filtro.</p>
+    <button class="btn-primary">Seguir @seaswell</button>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="insta-section">
+  <div class="insta-inner">
+    <div class="insta-header">
+      <div>
+        <div class="section-eyebrow">Nossas fotos</div>
+        <h2 class="section-title" style="margin-bottom:0">@seaswell</h2>
+      </div>
+      <button class="btn-outline">Ver no Instagram</button>
+    </div>
+    <div class="insta-grid">
+      <div class="insta-tile"><span class="insta-tile-text">LOOK 01</span><div class="insta-overlay">↗</div></div>
+      <div class="insta-tile"><span class="insta-tile-text">LOOK 02</span><div class="insta-overlay">↗</div></div>
+      <div class="insta-tile"><span class="insta-tile-text">LOOK 03</span><div class="insta-overlay">↗</div></div>
+      <div class="insta-tile"><span class="insta-tile-text">LOOK 04</span><div class="insta-overlay">↗</div></div>
+      <div class="insta-tile"><span class="insta-tile-text">LOOK 05</span><div class="insta-overlay">↗</div></div>
+      <div class="insta-tile"><span class="insta-tile-text">LOOK 06</span><div class="insta-overlay">↗</div></div>
+      <div class="insta-tile"><span class="insta-tile-text">LOOK 07</span><div class="insta-overlay">↗</div></div>
+      <div class="insta-tile"><span class="insta-tile-text">LOOK 08</span><div class="insta-overlay">↗</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">SEA <span>SWELL</span></div>
+        <p>Streetwear litorâneo feito pra quem carrega a praia dentro. Peças com atitude, qualidade e identidade do litoral brasileiro.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#">Coleção completa</a></li>
+          <li><a href="#">Estampas exclusivas</a></li>
+          <li><a href="#">Kits e combos</a></li>
+          <li><a href="#">Sobre a marca</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Atendimento</h4>
+        <ul>
+          <li><a href="#">WhatsApp</a></li>
+          <li><a href="#">Trocas e devoluções</a></li>
+          <li><a href="#">Política de entrega</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Sea Swell — Navegantes, SC</span>
+      <div style="display:flex;gap:1.5rem;"><a href="#">Privacidade</a><a href="#">Termos</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const track = document.getElementById('carouselTrack');
+  const outer = document.getElementById('carouselOuter');
+  const btnPrev = document.getElementById('btnPrev');
+  const btnNext = document.getElementById('btnNext');
+  const dotsEl = document.getElementById('carouselDots');
+
+  let current = 0;
+
+  function getCardWidth(){
+    const card = track.querySelector('.product-card');
+    if(!card) return 280;
+    const style = window.getComputedStyle(track);
+    const gap = parseFloat(style.gap) || 20;
+    return card.offsetWidth + gap;
+  }
+
+  function getVisible(){
+    const cw = getCardWidth();
+    const ow = outer.offsetWidth;
+    return Math.max(1, Math.floor(ow / cw));
+  }
+
+  function totalCards(){
+    return track.querySelectorAll('.product-card').length;
+  }
+
+  function maxIndex(){
+    return Math.max(0, totalCards() - getVisible());
+  }
+
+  function buildDots(){
+    dotsEl.innerHTML='';
+    const max = maxIndex();
+    for(let i=0;i<=max;i++){
+      const d=document.createElement('div');
+      d.className='dot'+(i===current?' active':'');
+      d.onclick=()=>goTo(i);
+      dotsEl.appendChild(d);
+    }
+  }
+
+  function updateDots(){
+    const dots=dotsEl.querySelectorAll('.dot');
+    dots.forEach((d,i)=>{
+      d.className='dot'+(i===current?' active':'');
+    });
+  }
+
+  function goTo(idx){
+    const max=maxIndex();
+    current=Math.max(0,Math.min(idx,max));
+    const cw=getCardWidth();
+    track.style.transform=`translateX(-${current*cw}px)`;
+    btnPrev.disabled=current===0;
+    btnNext.disabled=current>=max;
+    updateDots();
+  }
+
+  btnPrev.addEventListener('click',()=>goTo(current-1));
+  btnNext.addEventListener('click',()=>goTo(current+1));
+
+  let resizeTimer;
+  window.addEventListener('resize',()=>{
+    clearTimeout(resizeTimer);
+    resizeTimer=setTimeout(()=>{
+      buildDots();
+      goTo(Math.min(current,maxIndex()));
+    },100);
+  });
+
+  buildDots();
+  goTo(0);
+
+  // Suporte a swipe/touch
+  let startX=0;
+  outer.addEventListener('touchstart',e=>{startX=e.touches[0].clientX;},{passive:true});
+  outer.addEventListener('touchend',e=>{
+    const diff=startX-e.changedTouches[0].clientX;
+    if(Math.abs(diff)>40){diff>0?goTo(current+1):goTo(current-1);}
+  },{passive:true});
+})();
+</script>
+</body>
+</html>
