@@ -6,178 +6,96 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-:root{
-  --navy:#1A3C6E;--sand:#F5F0E8;--charcoal:#1C1C1A;
-  --gold:#C8A96E;--navy-dark:#0F2347;--navy-mid:#224d8a;
-}
-body{font-family:'Inter',sans-serif;background:var(--charcoal);color:var(--sand);overflow-x:hidden;}
+:root{--navy:#1A3C6E;--sand:#F5F0E8;--charcoal:#1C1C1A;--gold:#C8A96E;--navy-dark:#0F2347;--navy-mid:#224d8a;}
+body{font-family:'Inter',sans-serif;background:#0f0f0d;color:var(--sand);overflow-x:hidden;}
 
 /* NAV */
-nav{
-  position:sticky;top:0;z-index:100;
-  background:rgba(28,28,26,0.96);backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(200,169,110,0.2);
-  padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;
-}
+nav{position:sticky;top:0;z-index:100;background:rgba(15,15,13,0.55);backdrop-filter:blur(32px) saturate(200%);-webkit-backdrop-filter:blur(32px) saturate(200%);border-bottom:1px solid rgba(255,255,255,0.08);box-shadow:0 1px 0 rgba(200,169,110,0.15),0 4px 24px rgba(0,0,0,0.3);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;}
 .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:0.1em;color:var(--sand);}
 .nav-logo span{color:var(--gold);}
 .nav-links{display:flex;gap:2rem;list-style:none;}
 .nav-links a{color:rgba(245,240,232,0.7);text-decoration:none;font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;transition:color 0.2s;}
 .nav-links a:hover{color:var(--gold);}
-.nav-btn{background:var(--gold);color:var(--charcoal);border:none;padding:0.5rem 1.2rem;font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border-radius:2px;}
+.nav-btn{background:rgba(200,169,110,0.15);backdrop-filter:blur(12px);border:1px solid rgba(200,169,110,0.4);box-shadow:inset 0 1px 0 rgba(200,169,110,0.3);color:var(--gold);padding:0.5rem 1.2rem;font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:all 0.2s;}
+.nav-btn:hover{background:var(--gold);color:var(--charcoal);}
 
-/* ===== HERO ESTILO ALIFE ===== */
-.hero{
-  position:relative;
-  width:100%;
-  height:calc(100vh - 64px);
-  min-height:500px;
-  overflow:hidden;
-  display:flex;align-items:flex-end;justify-content:center;
-  padding-bottom:5rem;
-}
-
-/* Placeholder de fundo — substitua por <img> quando tiver a foto */
-.hero-bg{
-  position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse 60% 80% at 50% 20%, #2a3a50 0%, #111 60%),
-    #0a0a0a;
-  display:flex;align-items:center;justify-content:center;
-}
-.hero-bg-label{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:1rem;letter-spacing:0.4em;
-  color:rgba(255,255,255,0.08);
-  text-transform:uppercase;
-  margin-top:-8rem;
-  user-select:none;
-}
-
-/* Gradiente escuro na parte de baixo pra legibilidade do texto */
-.hero-gradient{
-  position:absolute;inset:0;
-  background:linear-gradient(
-    to bottom,
-    rgba(0,0,0,0) 0%,
-    rgba(0,0,0,0.15) 40%,
-    rgba(0,0,0,0.75) 75%,
-    rgba(0,0,0,0.92) 100%
-  );
-}
-
-/* Tag da coleção (igual ao "Quadro Creations" da Alife) */
-.hero-tag{
-  position:absolute;
-  top:50%;left:50%;
-  transform:translate(-50%,-180%);
-  border:1px solid rgba(245,240,232,0.6);
-  padding:0.5rem 1.6rem;
-  font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;
-  color:var(--sand);
-  white-space:nowrap;
-}
-
-/* Conteúdo do hero */
-.hero-content{
-  position:relative;z-index:2;
-  text-align:center;
-  width:100%;padding:0 1rem;
-}
-.hero-title{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(3.5rem,11vw,9rem);
-  line-height:0.92;
-  letter-spacing:0.01em;
-  color:#fff;
-  text-shadow:0 4px 40px rgba(0,0,0,0.5);
-  margin-bottom:2.2rem;
-}
+/* HERO */
+.hero{position:relative;width:100%;height:calc(100vh - 64px);min-height:500px;overflow:hidden;display:flex;align-items:flex-end;justify-content:center;padding-bottom:5rem;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 50% 10%,#1a3060 0%,#0a0a0a 65%),radial-gradient(ellipse 50% 40% at 80% 80%,#0f2040 0%,transparent 60%),#080808;display:flex;align-items:center;justify-content:center;}
+.orb{position:absolute;border-radius:50%;filter:blur(60px);pointer-events:none;}
+.orb1{width:400px;height:400px;background:rgba(26,60,110,0.5);top:-100px;left:50%;transform:translateX(-50%);}
+.orb2{width:250px;height:250px;background:rgba(200,169,110,0.15);bottom:100px;right:10%;}
+.orb3{width:200px;height:200px;background:rgba(26,60,110,0.3);bottom:50px;left:5%;}
+.hero-bg-label{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.4em;color:rgba(255,255,255,0.05);text-transform:uppercase;user-select:none;margin-top:-10rem;}
+.hero-gradient{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0) 0%,rgba(0,0,0,0.1) 40%,rgba(0,0,0,0.7) 75%,rgba(0,0,0,0.9) 100%);}
+.hero-tag{position:absolute;top:42%;left:50%;transform:translate(-50%,-50%);padding:0.55rem 1.8rem;font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(245,240,232,0.85);white-space:nowrap;border-radius:40px;background:rgba(255,255,255,0.07);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);border:1px solid rgba(255,255,255,0.18);box-shadow:0 4px 24px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.2);}
+.hero-content{position:relative;z-index:2;text-align:center;width:100%;padding:0 1rem;}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,11vw,9rem);line-height:0.92;letter-spacing:0.01em;color:#fff;text-shadow:0 4px 40px rgba(0,0,0,0.5);margin-bottom:2.2rem;}
 .hero-title .gold{color:var(--gold);}
-
-.hero-ctas{
-  display:flex;gap:1rem;justify-content:center;align-items:center;flex-wrap:wrap;
-}
-.btn-comprar{
-  background:#fff;color:#111;
-  border:none;padding:0.9rem 2.8rem;
-  font-size:0.8rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;
-  cursor:pointer;transition:all 0.2s;text-decoration:none;display:inline-block;
-}
-.btn-comprar:hover{background:var(--gold);color:#111;}
-
-.cupom-box{
-  border:1px solid #fff;
-  padding:0.9rem 1.8rem;
-  text-align:center;cursor:pointer;
-  transition:border-color 0.2s;
-}
-.cupom-box:hover{border-color:var(--gold);}
-.cupom-code{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:1.2rem;letter-spacing:0.2em;
-  color:#fff;display:block;
-}
-.cupom-sub{
-  font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;
-  color:rgba(255,255,255,0.5);margin-top:0.15rem;display:block;
-}
+.hero-ctas{display:flex;gap:1rem;justify-content:center;align-items:center;flex-wrap:wrap;}
+.btn-comprar{background:rgba(255,255,255,0.92);color:#111;border:1px solid rgba(255,255,255,0.6);box-shadow:0 4px 20px rgba(0,0,0,0.3),inset 0 1px 0 #fff;padding:0.9rem 2.8rem;font-size:0.8rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;cursor:pointer;transition:all 0.25s;text-decoration:none;display:inline-block;border-radius:4px;}
+.btn-comprar:hover{background:var(--gold);border-color:var(--gold);color:#111;}
+.cupom-box{background:rgba(255,255,255,0.06);backdrop-filter:blur(20px) saturate(150%);-webkit-backdrop-filter:blur(20px) saturate(150%);border:1px solid rgba(255,255,255,0.18);box-shadow:0 4px 24px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.2);padding:0.9rem 1.8rem;text-align:center;cursor:pointer;transition:all 0.25s;border-radius:4px;text-decoration:none;display:inline-block;}
+.cupom-box:hover{border-color:rgba(200,169,110,0.5);background:rgba(200,169,110,0.1);}
+.cupom-code{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:0.2em;color:#fff;display:block;}
+.cupom-sub{font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:0.15rem;display:block;}
 
 /* TRUST BAR */
-.trust-bar{background:var(--navy);padding:1rem 2rem;display:flex;align-items:center;justify-content:center;gap:3rem;flex-wrap:wrap;border-bottom:1px solid rgba(200,169,110,0.15);}
+.trust-bar{background:rgba(26,60,110,0.4);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(200,169,110,0.12);box-shadow:inset 0 1px 0 rgba(255,255,255,0.06);padding:1rem 2rem;display:flex;align-items:center;justify-content:center;gap:3rem;flex-wrap:wrap;}
 .trust-item{display:flex;align-items:center;gap:0.6rem;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(245,240,232,0.7);}
 .trust-icon{color:var(--gold);}
 
-/* VS */
-.vs-section{background:var(--charcoal);padding:5rem 1rem;}
-.vs-inner{max-width:1000px;margin:0 auto;}
-.vs-header{text-align:center;margin-bottom:3rem;padding:0 1rem;}
-.vs-header p{color:rgba(245,240,232,0.55);max-width:500px;margin:0 auto;font-size:0.85rem;line-height:1.7;}
-.section-eyebrow{font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:0.8rem;}
-.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3.2rem);line-height:1;letter-spacing:0.03em;color:var(--sand);margin-bottom:1rem;}
-.vs-cards{display:grid;grid-template-columns:1fr 44px 1fr;gap:0;align-items:stretch;max-width:860px;margin:0 auto;}
-.vs-card{padding:1.5rem 1.2rem;display:flex;flex-direction:column;gap:0.9rem;}
-.vs-card.them{background:#1a1a1a;border:1px solid rgba(255,255,255,0.06);border-right:none;border-radius:8px 0 0 8px;}
-.vs-card.us{background:var(--navy);border:1px solid rgba(200,169,110,0.3);border-left:none;border-radius:0 8px 8px 0;position:relative;}
-.vs-card.us::before{content:'SEA SWELL';position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--charcoal);font-size:0.55rem;font-weight:700;letter-spacing:0.2em;padding:0.25rem 0.8rem;border-radius:0 0 4px 4px;white-space:nowrap;}
-.vs-divider{display:flex;align-items:center;justify-content:center;background:var(--charcoal);}
-.vs-vs-badge{width:36px;height:36px;border-radius:50%;background:var(--gold);color:var(--charcoal);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1rem;box-shadow:0 0 0 3px var(--charcoal);flex-shrink:0;}
-.vs-card-label{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,240,232,0.4);padding-bottom:0.7rem;border-bottom:1px solid rgba(255,255,255,0.06);}
-.vs-card.us .vs-card-label{color:var(--gold);border-color:rgba(200,169,110,0.2);}
-.vs-row{display:flex;align-items:flex-start;gap:0.5rem;}
-.vs-icon{width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.6rem;flex-shrink:0;margin-top:2px;}
-.vs-icon.bad{background:rgba(255,80,80,0.12);color:#ff5050;}
-.vs-icon.good{background:rgba(200,169,110,0.15);color:var(--gold);}
-.vs-row-text{font-size:0.78rem;line-height:1.5;color:rgba(245,240,232,0.75);}
-.vs-card.us .vs-row-text{color:var(--sand);}
-.vs-shirt-compare{display:grid;grid-template-columns:1fr 1fr;max-width:720px;margin:2.5rem auto 0;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);}
-.vs-shirt-side{padding:1.5rem 1rem;text-align:center;}
-.vs-shirt-side.old{background:#111;}
-.vs-shirt-side.new{background:var(--navy);}
-.shirt-visual{width:90px;height:110px;margin:0 auto 1rem;position:relative;}
-.shirt-body{position:absolute;top:15px;left:8px;right:8px;bottom:0;border-radius:3px 3px 6px 6px;}
-.shirt-collar{position:absolute;top:0;left:50%;transform:translateX(-50%);width:28px;height:18px;border-radius:0 0 14px 14px;}
-.shirt-sleeve-l,.shirt-sleeve-r{position:absolute;top:15px;width:16px;height:34px;border-radius:3px;}
-.shirt-sleeve-l{left:-5px;transform:rotate(8deg);transform-origin:top right;}
-.shirt-sleeve-r{right:-5px;transform:rotate(-8deg);transform-origin:top left;}
-.old .shirt-body,.old .shirt-sleeve-l,.old .shirt-sleeve-r{background:#2a2a2a;}
-.old .shirt-collar{background:#222;}
-.new .shirt-body,.new .shirt-sleeve-l,.new .shirt-sleeve-r{background:var(--navy);}
-.new .shirt-collar{background:var(--navy-dark);}
-.shirt-print{position:absolute;top:38px;left:50%;transform:translateX(-50%);font-family:'Bebas Neue',sans-serif;font-size:0.75rem;letter-spacing:0.1em;color:var(--gold);white-space:nowrap;}
-.old-pill{display:inline-block;background:#2a2a2a;padding:0.15rem 0.45rem;border-radius:10px;font-size:0.58rem;color:#777;margin:0.15rem;}
-.new-pill{display:inline-block;background:rgba(200,169,110,0.15);padding:0.15rem 0.45rem;border-radius:10px;font-size:0.58rem;color:var(--gold);margin:0.15rem;}
-.vs-shirt-label{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(245,240,232,0.4);margin-bottom:0.4rem;}
-.vs-shirt-title{font-family:'Bebas Neue',sans-serif;font-size:1rem;color:var(--sand);margin-bottom:0.7rem;}
+/* ===== SEÇÃO COMPARADOR ===== */
+.compare-section{background:#0f0f0d;padding:5rem 2rem;position:relative;overflow:hidden;}
+.compare-section::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;background:rgba(26,60,110,0.07);filter:blur(100px);top:-200px;left:50%;transform:translateX(-50%);pointer-events:none;}
+.compare-header{text-align:center;margin-bottom:3.5rem;position:relative;z-index:1;}
+.section-eyebrow{font-size:0.65rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:0.8rem;}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,6vw,4rem);line-height:1;color:var(--sand);margin-bottom:0.8rem;}
+.section-sub{font-size:0.88rem;color:rgba(245,240,232,0.45);max-width:440px;margin:0 auto;line-height:1.7;}
+.compare-labels{display:flex;justify-content:space-between;max-width:700px;margin:0 auto 1.2rem;padding:0 1rem;position:relative;z-index:1;}
+.label-left,.label-right{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;display:flex;align-items:center;gap:0.5rem;}
+.label-left{color:var(--gold);}
+.label-right{color:rgba(245,240,232,0.35);}
+.label-dot{width:8px;height:8px;border-radius:50%;}
+.label-left .label-dot{background:var(--gold);}
+.label-right .label-dot{background:rgba(245,240,232,0.2);}
+.compare-wrap{position:relative;max-width:700px;margin:0 auto;border-radius:16px;overflow:hidden;cursor:col-resize;user-select:none;border:1px solid rgba(255,255,255,0.06);box-shadow:0 24px 80px rgba(0,0,0,0.6),inset 0 1px 0 rgba(255,255,255,0.06);}
+.shirt-layer{display:block;width:100%;height:auto;}
+.shirt-bg{position:relative;width:100%;}
+.shirt-fg{position:absolute;top:0;left:0;width:100%;height:100%;clip-path:inset(0 50% 0 0);}
+.divider-line{position:absolute;top:0;bottom:0;left:50%;width:2px;background:rgba(255,255,255,0.85);transform:translateX(-50%);pointer-events:none;box-shadow:0 0 12px rgba(255,255,255,0.3);}
+.divider-handle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,0.12);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);border:1.5px solid rgba(255,255,255,0.3);box-shadow:0 4px 24px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:10;}
+.handle-icon{display:flex;gap:3px;align-items:center;}
+.handle-icon span{display:block;width:2px;height:16px;border-radius:2px;background:rgba(255,255,255,0.85);}
+.shirt-badge{position:absolute;bottom:2rem;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;pointer-events:none;z-index:5;transition:opacity 0.2s;}
+.shirt-badge.left{left:1.5rem;background:rgba(200,169,110,0.15);backdrop-filter:blur(12px);border:1px solid rgba(200,169,110,0.3);color:var(--gold);padding:0.4rem 0.9rem;border-radius:20px;box-shadow:inset 0 1px 0 rgba(200,169,110,0.2);}
+.shirt-badge.right{right:1.5rem;background:rgba(0,0,0,0.4);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.1);color:rgba(245,240,232,0.5);padding:0.4rem 0.9rem;border-radius:20px;}
+.drag-hint{text-align:center;margin-top:1rem;font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,240,232,0.3);display:flex;align-items:center;justify-content:center;gap:0.5rem;}
+.drag-hint::before{content:'←';opacity:0.4;}
+.drag-hint::after{content:'→';opacity:0.4;}
+.compare-features{display:grid;grid-template-columns:1fr 1fr;max-width:700px;margin:2.5rem auto 0;gap:1px;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);}
+.feat-col{padding:1.5rem;}
+.feat-col.good{background:rgba(26,60,110,0.25);backdrop-filter:blur(16px);}
+.feat-col.bad{background:rgba(10,10,10,0.6);backdrop-filter:blur(16px);}
+.feat-col-label{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1rem;padding-bottom:0.7rem;border-bottom:1px solid rgba(255,255,255,0.06);}
+.feat-col.good .feat-col-label{color:var(--gold);border-color:rgba(200,169,110,0.2);}
+.feat-col.bad .feat-col-label{color:rgba(245,240,232,0.3);}
+.feat-row{display:flex;align-items:flex-start;gap:0.5rem;margin-bottom:0.7rem;}
+.feat-icon{width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.6rem;flex-shrink:0;margin-top:1px;}
+.feat-icon.good{background:rgba(200,169,110,0.15);color:var(--gold);}
+.feat-icon.bad{background:rgba(255,80,80,0.1);color:#ff5050;}
+.feat-text{font-size:0.78rem;line-height:1.5;color:rgba(245,240,232,0.7);}
+.feat-col.good .feat-text{color:var(--sand);}
 
 /* CARROSSEL */
-.products-section{background:#161614;padding:5rem 0;}
+.products-section{background:#0a0a09;padding:5rem 0;position:relative;overflow:hidden;}
+.products-section::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:rgba(200,169,110,0.04);filter:blur(80px);bottom:-100px;left:-100px;pointer-events:none;}
 .products-inner{max-width:1100px;margin:0 auto;padding:0 2rem;}
 .products-header{margin-bottom:2rem;}
 .carousel-track-outer{overflow:hidden;}
 .carousel-track{display:flex;gap:1.25rem;transition:transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);}
-.product-card{flex:0 0 280px;background:#1e1e1c;border:1px solid rgba(255,255,255,0.06);border-radius:6px;overflow:hidden;transition:border-color 0.2s,transform 0.2s;cursor:pointer;}
-.product-card:hover{border-color:rgba(200,169,110,0.3);transform:translateY(-3px);}
+.product-card{flex:0 0 280px;background:rgba(255,255,255,0.04);backdrop-filter:blur(20px) saturate(150%);-webkit-backdrop-filter:blur(20px) saturate(150%);border:1px solid rgba(255,255,255,0.08);box-shadow:0 8px 32px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.08);border-radius:12px;overflow:hidden;transition:border-color 0.25s,transform 0.25s,box-shadow 0.25s;cursor:pointer;}
+.product-card:hover{border-color:rgba(200,169,110,0.35);transform:translateY(-6px);box-shadow:0 20px 48px rgba(0,0,0,0.4),0 0 0 1px rgba(200,169,110,0.15),inset 0 1px 0 rgba(255,255,255,0.12);}
 .product-img{aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
 .product-img.p1{background:linear-gradient(160deg,#1a2a4a,#0f1d35);}
 .product-img.p2{background:linear-gradient(160deg,#2a2418,#1a1610);}
@@ -196,39 +114,40 @@ nav{
 .p3 .sp-body,.p3 .sp-sl,.p3 .sp-sr{background:#F5F0E8;}.p3 .sp-collar{background:#ddd;}.p3 .sp-print{color:#1A3C6E;}
 .p4 .sp-body,.p4 .sp-sl,.p4 .sp-sr{background:#1A3C6E;}.p4 .sp-collar{background:#0F2347;}.p4 .sp-print{color:#F5F0E8;}
 .p5 .sp-body,.p5 .sp-sl,.p5 .sp-sr{background:#3d2a5a;}.p5 .sp-collar{background:#2a1d3e;}.p5 .sp-print{color:#C8A96E;}
-.badge-new{position:absolute;top:12px;left:12px;background:var(--gold);color:var(--charcoal);font-size:0.55rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.25rem 0.6rem;border-radius:2px;}
-.badge-hot{position:absolute;top:12px;left:12px;background:#c0392b;color:#fff;font-size:0.55rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.25rem 0.6rem;border-radius:2px;}
+.badge-new{position:absolute;top:12px;left:12px;background:rgba(200,169,110,0.85);backdrop-filter:blur(8px);color:var(--charcoal);font-size:0.55rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.25rem 0.6rem;border-radius:20px;}
+.badge-hot{position:absolute;top:12px;left:12px;background:rgba(192,57,43,0.85);backdrop-filter:blur(8px);color:#fff;font-size:0.55rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.25rem 0.6rem;border-radius:20px;}
 .product-info{padding:1.2rem;}
 .product-name{font-size:0.85rem;font-weight:500;color:var(--sand);margin-bottom:0.3rem;}
 .product-sub{font-size:0.72rem;color:rgba(245,240,232,0.45);margin-bottom:0.8rem;}
 .product-price{display:flex;align-items:baseline;gap:0.6rem;}
 .price-current{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--gold);}
 .price-old{font-size:0.75rem;color:rgba(245,240,232,0.3);text-decoration:line-through;}
-.product-cta{display:block;margin-top:0.8rem;background:transparent;border:1px solid rgba(200,169,110,0.3);color:var(--gold);padding:0.55rem;font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:all 0.2s;width:100%;text-align:center;text-decoration:none;}
-.product-cta:hover{background:var(--gold);color:var(--charcoal);}
+.product-cta{display:block;margin-top:0.8rem;background:rgba(200,169,110,0.08);backdrop-filter:blur(12px);border:1px solid rgba(200,169,110,0.25);box-shadow:inset 0 1px 0 rgba(200,169,110,0.15);color:var(--gold);padding:0.55rem;font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;border-radius:6px;transition:all 0.2s;width:100%;text-align:center;text-decoration:none;}
+.product-cta:hover{background:var(--gold);color:var(--charcoal);border-color:var(--gold);}
 .carousel-controls{display:flex;align-items:center;justify-content:flex-end;gap:0.6rem;margin-top:1.5rem;padding:0 2rem 0 0;}
-.carousel-arrow{width:44px;height:44px;border-radius:50%;background:transparent;border:1px solid rgba(200,169,110,0.35);color:var(--gold);font-size:1.1rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;}
+.carousel-arrow{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.05);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.12);box-shadow:inset 0 1px 0 rgba(255,255,255,0.1);color:var(--gold);font-size:1.1rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;}
 .carousel-arrow:hover{background:var(--gold);color:var(--charcoal);border-color:var(--gold);}
-.carousel-arrow:disabled{opacity:0.25;cursor:default;}
+.carousel-arrow:disabled{opacity:0.2;cursor:default;}
 .carousel-dots{display:flex;gap:0.4rem;align-items:center;margin-right:auto;}
 .dot{width:6px;height:6px;border-radius:50%;background:rgba(200,169,110,0.25);transition:all 0.2s;cursor:pointer;}
 .dot.active{background:var(--gold);width:18px;border-radius:3px;}
 
 /* MANIFESTO */
-.manifesto{background:var(--navy);padding:6rem 2rem;text-align:center;position:relative;overflow:hidden;}
+.manifesto{background:linear-gradient(135deg,#0d1e38 0%,#1a3c6e 60%,#0f2347 100%);padding:6rem 2rem;text-align:center;position:relative;overflow:hidden;}
 .manifesto::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 100%,rgba(200,169,110,0.08) 0%,transparent 60%);}
-.manifesto-inner{max-width:700px;margin:0 auto;position:relative;}
+.manifesto::after{content:'';position:absolute;width:400px;height:400px;border-radius:50%;background:rgba(200,169,110,0.06);filter:blur(60px);top:-100px;right:-50px;pointer-events:none;}
+.manifesto-inner{max-width:700px;margin:0 auto;position:relative;z-index:1;}
 .quote-mark{font-family:'Bebas Neue',sans-serif;font-size:6rem;color:var(--gold);opacity:0.2;line-height:0.5;display:block;margin-bottom:1rem;}
 .manifesto-text{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.15;color:var(--sand);margin-bottom:2rem;}
 .manifesto-text .gold{color:var(--gold);}
 .manifesto-sub{font-size:0.9rem;line-height:1.8;color:rgba(245,240,232,0.55);max-width:500px;margin:0 auto 2.5rem;}
 
 /* INSTAGRAM */
-.insta-section{background:#111110;padding:5rem 2rem;}
+.insta-section{background:#080807;padding:5rem 2rem;}
 .insta-inner{max-width:1100px;margin:0 auto;}
 .insta-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:2rem;flex-wrap:wrap;gap:1rem;}
-.insta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;}
-.insta-tile{aspect-ratio:1;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;overflow:hidden;text-decoration:none;}
+.insta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;}
+.insta-tile{aspect-ratio:1;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;overflow:hidden;text-decoration:none;border-radius:4px;}
 .insta-tile:hover .insta-overlay{opacity:1;}
 .insta-tile:nth-child(1){background:linear-gradient(135deg,#1A3C6E,#0F2347);}
 .insta-tile:nth-child(2){background:linear-gradient(135deg,#2a2418,#1a1610);}
@@ -238,27 +157,28 @@ nav{
 .insta-tile:nth-child(6){background:linear-gradient(135deg,#1A3C6E,#224d8a);}
 .insta-tile:nth-child(7){background:linear-gradient(135deg,#2a2418,#C8A96E44);}
 .insta-tile:nth-child(8){background:linear-gradient(135deg,#1e1e1e,#2a2a2a);}
-.insta-overlay{position:absolute;inset:0;background:rgba(200,169,110,0.25);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.2s;font-size:1.2rem;color:var(--sand);}
-.insta-tile-text{position:relative;z-index:1;font-family:'Bebas Neue',sans-serif;font-size:0.65rem;letter-spacing:0.15em;color:rgba(245,240,232,0.15);}
-.btn-outline{background:transparent;color:var(--sand);border:1px solid rgba(245,240,232,0.4);padding:0.9rem 2.2rem;font-size:0.8rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:all 0.2s;text-decoration:none;display:inline-block;}
+.insta-overlay{position:absolute;inset:0;background:rgba(200,169,110,0.18);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.25s;font-size:1.4rem;color:rgba(255,255,255,0.9);}
+.insta-tile-text{position:relative;z-index:1;font-family:'Bebas Neue',sans-serif;font-size:0.65rem;letter-spacing:0.15em;color:rgba(245,240,232,0.12);}
+.btn-outline{background:rgba(255,255,255,0.05);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(245,240,232,0.2);box-shadow:inset 0 1px 0 rgba(255,255,255,0.1);color:var(--sand);padding:0.9rem 2.2rem;font-size:0.8rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:all 0.2s;text-decoration:none;display:inline-block;}
 .btn-outline:hover{border-color:var(--gold);color:var(--gold);}
 
 /* FOOTER */
-footer{background:var(--navy-dark);padding:3rem 2rem 1.5rem;border-top:1px solid rgba(200,169,110,0.15);}
+footer{background:rgba(8,14,28,0.98);backdrop-filter:blur(20px);padding:3rem 2rem 1.5rem;border-top:1px solid rgba(200,169,110,0.12);}
 .footer-inner{max-width:1100px;margin:0 auto;}
 .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;margin-bottom:3rem;}
 .footer-brand .logo{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:0.1em;color:var(--sand);margin-bottom:0.5rem;}
 .footer-brand .logo span{color:var(--gold);}
-.footer-brand p{font-size:0.82rem;line-height:1.7;color:rgba(245,240,232,0.45);max-width:280px;}
+.footer-brand p{font-size:0.82rem;line-height:1.7;color:rgba(245,240,232,0.4);max-width:280px;}
 .footer-col h4{font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
 .footer-col ul{list-style:none;}
 .footer-col ul li{margin-bottom:0.6rem;}
-.footer-col ul li a{font-size:0.82rem;color:rgba(245,240,232,0.5);text-decoration:none;transition:color 0.2s;}
+.footer-col ul li a{font-size:0.82rem;color:rgba(245,240,232,0.45);text-decoration:none;transition:color 0.2s;}
 .footer-col ul li a:hover{color:var(--sand);}
-.footer-bottom{padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:space-between;font-size:0.72rem;color:rgba(245,240,232,0.3);flex-wrap:wrap;gap:0.5rem;}
-.footer-bottom a{color:rgba(245,240,232,0.3);text-decoration:none;}
+.footer-bottom{padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:space-between;font-size:0.72rem;color:rgba(245,240,232,0.25);flex-wrap:wrap;gap:0.5rem;}
+.footer-bottom a{color:rgba(245,240,232,0.25);text-decoration:none;}
 
-.whatsapp-float{position:fixed;bottom:2rem;right:2rem;width:52px;height:52px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:999;box-shadow:0 4px 16px rgba(37,211,102,0.3);transition:transform 0.2s;text-decoration:none;}
+/* WHATSAPP */
+.whatsapp-float{position:fixed;bottom:2rem;right:2rem;width:52px;height:52px;border-radius:50%;background:rgba(37,211,102,0.85);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.2);box-shadow:0 4px 20px rgba(37,211,102,0.35),inset 0 1px 0 rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:999;transition:transform 0.2s;text-decoration:none;}
 .whatsapp-float:hover{transform:scale(1.08);}
 .whatsapp-float svg{width:26px;height:26px;fill:white;}
 
@@ -266,20 +186,15 @@ footer{background:var(--navy-dark);padding:3rem 2rem 1.5rem;border-top:1px solid
   .nav-links{display:none;}
   .footer-top{grid-template-columns:1fr;gap:2rem;}
   .insta-grid{grid-template-columns:repeat(2,1fr);}
-  .vs-cards{max-width:100%;}
-  .vs-card{padding:1rem 0.6rem;gap:0.65rem;}
-  .vs-row-text{font-size:0.66rem;}
-  .vs-vs-badge{width:28px;height:28px;font-size:0.8rem;}
   .product-card{flex:0 0 230px;}
-  .hero-tag{transform:translate(-50%,-250%);}
   .hero{padding-bottom:3.5rem;}
-  .cupom-box{padding:0.8rem 1.2rem;}
+  .compare-features{grid-template-columns:1fr;}
 }
 </style>
 </head>
 <body>
 
-<a class="whatsapp-float" id="wppFloat" href="https://wa.me/5547991241755?text=Ol%C3%A1%2C+vim+pelo+site+e+quero+saber+mais+sobre+os+produtos+da+Sea+Swell!" target="_blank" rel="noopener">
+<a class="whatsapp-float" href="https://wa.me/5547991241755?text=Ol%C3%A1%2C+vim+pelo+site+e+quero+saber+mais+sobre+os+produtos+da+Sea+Swell!" target="_blank" rel="noopener">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
@@ -295,25 +210,19 @@ footer{background:var(--navy-dark);padding:3rem 2rem 1.5rem;border-top:1px solid
   <button class="nav-btn" onclick="window.open('https://www.instagram.com/seaswell_nvg/','_blank')">Ver Kits</button>
 </nav>
 
-<!-- HERO ESTILO ALIFE -->
+<!-- HERO -->
 <section class="hero">
-  <!-- FUNDO: troque o conteúdo de .hero-bg por uma <img> quando tiver a foto -->
   <div class="hero-bg">
+    <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
     <div class="hero-bg-label">Foto do produto aqui</div>
   </div>
-
-  <!-- Gradiente de legibilidade -->
   <div class="hero-gradient"></div>
-
-  <!-- Tag flutuante da coleção -->
-  <div class="hero-tag">Nova Coleção · Sea Swell</div>
-
-  <!-- Texto e botões -->
+  <div class="hero-tag">Nova Coleção · Sea Swell · 2025</div>
   <div class="hero-content">
     <h1 class="hero-title">NOVA COLEÇÃO<br><span class="gold">DISPONÍVEL</span></h1>
     <div class="hero-ctas">
       <a class="btn-comprar" href="https://www.instagram.com/seaswell_nvg/" target="_blank" rel="noopener">Comprar Agora</a>
-      <a class="cupom-box" href="https://wa.me/5547991241755?text=Ol%C3%A1%2C+vim+pelo+site+e+quero+usar+o+cupom+SWELL10!" target="_blank" rel="noopener">
+      <a class="cupom-box" href="https://wa.me/5547991241755?text=Quero+usar+o+cupom+SWELL10!" target="_blank" rel="noopener">
         <span class="cupom-code">SWELL10</span>
         <span class="cupom-sub">Use na sua primeira compra</span>
       </a>
@@ -329,61 +238,88 @@ footer{background:var(--navy-dark);padding:3rem 2rem 1.5rem;border-top:1px solid
   <div class="trust-item"><span class="trust-icon">✦</span> Enviamos para todo o Brasil</div>
 </div>
 
-<!-- VS SECTION -->
-<div class="vs-section">
-  <div class="vs-inner">
-    <div class="vs-header">
-      <div class="section-eyebrow">Sea Swell x Concorrência</div>
-      <h2 class="section-title">A diferença que você<br>vai sentir na pele</h2>
-      <p>A maioria das marcas vende a mesma camiseta. A Sea Swell entrega o que as outras prometem.</p>
+<!-- COMPARADOR -->
+<div class="compare-section">
+  <div class="compare-header">
+    <div class="section-eyebrow">Comparação real</div>
+    <h2 class="section-title">A diferença que você<br>vai sentir na pele</h2>
+    <p class="section-sub">Arraste o divisor e veja a diferença entre a Sea Swell e qualquer outra marca do mercado.</p>
+  </div>
+  <div class="compare-labels">
+    <div class="label-left"><span class="label-dot"></span>Sea Swell</div>
+    <div class="label-right">Concorrência<span class="label-dot"></span></div>
+  </div>
+  <div class="compare-wrap" id="compareWrap">
+    <div class="shirt-bg">
+      <svg class="shirt-layer" viewBox="0 0 700 780" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="worn"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" result="noise"/><feColorMatrix type="saturate" values="0" in="noise" result="gray"/><feBlend in="SourceGraphic" in2="gray" mode="multiply" result="blend"/><feComponentTransfer in="blend"><feFuncR type="linear" slope="0.85" intercept="0.05"/><feFuncG type="linear" slope="0.85" intercept="0.05"/><feFuncB type="linear" slope="0.85" intercept="0.05"/></feComponentTransfer></filter>
+          <filter id="wornMore"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise"/><feColorMatrix type="saturate" values="0" in="noise" result="gray"/><feBlend in="SourceGraphic" in2="gray" mode="multiply"/></filter>
+        </defs>
+        <path d="M130,200 L60,160 L30,280 L140,310 Z" fill="#2a2a28" filter="url(#worn)"/>
+        <path d="M570,200 L640,160 L670,280 L560,310 Z" fill="#2a2a28" filter="url(#worn)"/>
+        <path d="M130,200 L140,310 L140,720 L560,720 L560,310 L570,200 L490,130 L440,180 Q350,210 260,180 L210,130 Z" fill="#2d2d2a" filter="url(#worn)"/>
+        <path d="M260,180 Q350,215 440,180 L430,155 Q350,190 270,155 Z" fill="#252523" filter="url(#worn)"/>
+        <line x1="350" y1="200" x2="350" y2="720" stroke="#222220" stroke-width="1.5" stroke-dasharray="8,6" opacity="0.6"/>
+        <ellipse cx="420" cy="480" rx="40" ry="25" fill="#1a1a18" opacity="0.5" filter="url(#wornMore)"/>
+        <ellipse cx="280" cy="560" rx="25" ry="15" fill="#1a1a18" opacity="0.35" filter="url(#wornMore)"/>
+        <text x="350" y="430" font-family="Inter,sans-serif" font-size="14" fill="rgba(245,240,232,0.25)" text-anchor="middle" letter-spacing="4">concorrência</text>
+        <path d="M140,320 L140,700" stroke="#222" stroke-width="2" stroke-dasharray="12,8" opacity="0.5"/>
+        <path d="M560,320 L560,700" stroke="#222" stroke-width="2" stroke-dasharray="12,8" opacity="0.5"/>
+      </svg>
     </div>
-    <div class="vs-cards">
-      <div class="vs-card them">
-        <div class="vs-card-label">Outras marcas</div>
-        <div class="vs-row"><div class="vs-icon bad">✕</div><div class="vs-row-text">Encolhe após as primeiras lavagens</div></div>
-        <div class="vs-row"><div class="vs-icon bad">✕</div><div class="vs-row-text">Desbota com o sol e o sal</div></div>
-        <div class="vs-row"><div class="vs-icon bad">✕</div><div class="vs-row-text">Tecido fino que gruda no corpo</div></div>
-        <div class="vs-row"><div class="vs-icon bad">✕</div><div class="vs-row-text">Estampas genéricas sem identidade</div></div>
-        <div class="vs-row"><div class="vs-icon bad">✕</div><div class="vs-row-text">Acabamento que desfia rápido</div></div>
-        <div class="vs-row"><div class="vs-icon bad">✕</div><div class="vs-row-text">Corte que não valoriza o corpo</div></div>
-      </div>
-      <div class="vs-divider"><div class="vs-vs-badge">VS</div></div>
-      <div class="vs-card us">
-        <div class="vs-card-label">Sea Swell</div>
-        <div class="vs-row"><div class="vs-icon good">✓</div><div class="vs-row-text">Encolhimento zero — lavou, manteve</div></div>
-        <div class="vs-row"><div class="vs-icon good">✓</div><div class="vs-row-text">Pigmento fixo, resiste ao dia na praia</div></div>
-        <div class="vs-row"><div class="vs-icon good">✓</div><div class="vs-row-text">Gramatura encorpada, caimento perfeito</div></div>
-        <div class="vs-row"><div class="vs-icon good">✓</div><div class="vs-row-text">Estampas exclusivas do litoral</div></div>
-        <div class="vs-row"><div class="vs-icon good">✓</div><div class="vs-row-text">Costura reforçada que dura</div></div>
-        <div class="vs-row"><div class="vs-icon good">✓</div><div class="vs-row-text">Oversized pensado pro corpo brasileiro</div></div>
-      </div>
+    <div class="shirt-fg" id="shirtFg">
+      <svg class="shirt-layer" viewBox="0 0 700 780" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="navyGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#1e4a80"/><stop offset="50%" stop-color="#1A3C6E"/><stop offset="100%" stop-color="#0F2347"/></linearGradient>
+          <linearGradient id="sleeveGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0F2347"/><stop offset="100%" stop-color="#1A3C6E"/></linearGradient>
+        </defs>
+        <rect x="0" y="0" width="700" height="780" fill="#0f0f0d"/>
+        <path d="M130,200 L60,160 L30,280 L140,310 Z" fill="url(#sleeveGrad)"/>
+        <path d="M100,175 L65,170 L50,220 L100,215 Z" fill="rgba(255,255,255,0.04)"/>
+        <path d="M570,200 L640,160 L670,280 L560,310 Z" fill="url(#navyGrad)"/>
+        <path d="M130,200 L140,310 L140,720 L560,720 L560,310 L570,200 L490,130 L440,180 Q350,210 260,180 L210,130 Z" fill="url(#navyGrad)"/>
+        <path d="M210,130 Q350,90 490,130 L490,160 Q350,120 210,160 Z" fill="rgba(255,255,255,0.05)"/>
+        <path d="M140,310 L155,310 L155,720 L140,720 Z" fill="rgba(255,255,255,0.03)"/>
+        <path d="M260,180 Q350,215 440,180 L430,155 Q350,188 270,155 Z" fill="#0F2347"/>
+        <path d="M265,178 Q350,210 435,178 L432,168 Q350,198 268,168 Z" fill="rgba(255,255,255,0.06)"/>
+        <line x1="140" y1="310" x2="140" y2="720" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
+        <line x1="560" y1="310" x2="560" y2="720" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
+        <line x1="140" y1="710" x2="560" y2="710" stroke="rgba(255,255,255,0.07)" stroke-width="1.5"/>
+        <line x1="35" y1="272" x2="138" y2="305" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
+        <text x="230" y="370" font-family="'Bebas Neue',sans-serif" font-size="22" fill="#C8A96E" letter-spacing="4" opacity="0.9">SEA SWELL</text>
+        <line x1="228" y1="378" x2="368" y2="378" stroke="#C8A96E" stroke-width="0.8" opacity="0.4"/>
+        <rect x="68" y="228" width="30" height="18" rx="2" fill="rgba(200,169,110,0.15)" stroke="rgba(200,169,110,0.3)" stroke-width="0.8"/>
+        <text x="83" y="241" font-family="'Bebas Neue',sans-serif" font-size="7" fill="#C8A96E" text-anchor="middle" letter-spacing="1">SS</text>
+        <rect x="335" y="192" width="30" height="14" rx="2" fill="#0F2347" stroke="rgba(200,169,110,0.4)" stroke-width="0.8"/>
+        <text x="350" y="202" font-family="'Bebas Neue',sans-serif" font-size="6" fill="#C8A96E" text-anchor="middle" letter-spacing="0.5">NVG</text>
+      </svg>
     </div>
-    <div class="vs-shirt-compare">
-      <div class="vs-shirt-side old">
-        <div class="vs-shirt-label">Após 5 lavagens</div>
-        <div class="vs-shirt-title">Outras marcas</div>
-        <div class="shirt-visual old">
-          <div class="shirt-sleeve-l"></div><div class="shirt-sleeve-r"></div>
-          <div class="shirt-body" style="background:#1e1e1e;transform:scale(0.86);transform-origin:center bottom;"></div>
-          <div class="shirt-collar" style="background:#181818;"></div>
-        </div>
-        <div><span class="old-pill">encolheu</span><span class="old-pill">desbotou</span><span class="old-pill">bolinhas</span></div>
-      </div>
-      <div class="vs-shirt-side new">
-        <div class="vs-shirt-label">Após 5 lavagens</div>
-        <div class="vs-shirt-title">Sea Swell</div>
-        <div class="shirt-visual new">
-          <div class="shirt-sleeve-l"></div><div class="shirt-sleeve-r"></div>
-          <div class="shirt-body"></div><div class="shirt-collar"></div>
-          <div class="shirt-print">SS</div>
-        </div>
-        <div><span class="new-pill">igual ao 1º dia</span><span class="new-pill">cor viva</span></div>
-      </div>
+    <div class="divider-line" id="dividerLine"></div>
+    <div class="divider-handle" id="dividerHandle"><div class="handle-icon"><span></span><span></span><span></span></div></div>
+    <div class="shirt-badge left" id="badgeLeft">✦ Sea Swell</div>
+    <div class="shirt-badge right">Concorrência</div>
+  </div>
+  <div class="drag-hint">Arraste para comparar</div>
+  <div class="compare-features">
+    <div class="feat-col good">
+      <div class="feat-col-label">Sea Swell</div>
+      <div class="feat-row"><div class="feat-icon good">✓</div><div class="feat-text">Cor viva após 20+ lavagens</div></div>
+      <div class="feat-row"><div class="feat-icon good">✓</div><div class="feat-text">Tecido 270g premium sem deformar</div></div>
+      <div class="feat-row"><div class="feat-icon good">✓</div><div class="feat-text">Costura reforçada dupla</div></div>
+      <div class="feat-row"><div class="feat-icon good">✓</div><div class="feat-text">Oversized sem perder o shape</div></div>
+    </div>
+    <div class="feat-col bad">
+      <div class="feat-col-label">Concorrência</div>
+      <div class="feat-row"><div class="feat-icon bad">✕</div><div class="feat-text">Desbota e perde cor em 5 lavagens</div></div>
+      <div class="feat-row"><div class="feat-icon bad">✕</div><div class="feat-text">Tecido fino que encolhe e deforma</div></div>
+      <div class="feat-row"><div class="feat-icon bad">✕</div><div class="feat-text">Costuras que soltam com o tempo</div></div>
+      <div class="feat-row"><div class="feat-icon bad">✕</div><div class="feat-text">Perde o caimento oversized</div></div>
     </div>
   </div>
 </div>
 
-<!-- PRODUTOS — CARROSSEL -->
+<!-- PRODUTOS -->
 <section class="products-section">
   <div class="products-inner">
     <div class="products-header">
@@ -395,26 +331,11 @@ footer{background:var(--navy-dark);padding:3rem 2rem 1.5rem;border-top:1px solid
     <div>
       <div class="carousel-track-outer" id="carouselOuter">
         <div class="carousel-track" id="carouselTrack">
-          <div class="product-card">
-            <div class="product-img p1"><div class="badge-new">Novo</div><div class="shirt-preview"><div class="sp-sl"></div><div class="sp-sr"></div><div class="sp-body"></div><div class="sp-collar"></div><div class="sp-print" style="color:#C8A96E">SWELL</div></div></div>
-            <div class="product-info"><div class="product-name">Oversized Wave Navy</div><div class="product-sub">Estampa exclusiva · Algodão 270g</div><div class="product-price"><span class="price-current">R$ 159</span><span class="price-old">R$ 199</span></div><a class="product-cta" href="https://www.instagram.com/seaswell_nvg/" target="_blank" rel="noopener">Comprar via Instagram</a></div>
-          </div>
-          <div class="product-card">
-            <div class="product-img p2"><div class="badge-hot">🔥 Top</div><div class="shirt-preview"><div class="sp-sl"></div><div class="sp-sr"></div><div class="sp-body"></div><div class="sp-collar"></div><div class="sp-print" style="color:#1C1C1A">SEA</div></div></div>
-            <div class="product-info"><div class="product-name">Oversized Gold Coast</div><div class="product-sub">Lisa premium · Caramelo areia</div><div class="product-price"><span class="price-current">R$ 149</span></div><a class="product-cta" href="https://www.instagram.com/seaswell_nvg/" target="_blank" rel="noopener">Comprar via Instagram</a></div>
-          </div>
-          <div class="product-card">
-            <div class="product-img p3"><div class="shirt-preview"><div class="sp-sl"></div><div class="sp-sr"></div><div class="sp-body"></div><div class="sp-collar"></div><div class="sp-print" style="color:#1A3C6E">SS·24</div></div></div>
-            <div class="product-info"><div class="product-name">Oversized Off White</div><div class="product-sub">Estampa minimalista · Areia</div><div class="product-price"><span class="price-current">R$ 149</span><span class="price-old">R$ 179</span></div><a class="product-cta" href="https://www.instagram.com/seaswell_nvg/" target="_blank" rel="noopener">Comprar via Instagram</a></div>
-          </div>
-          <div class="product-card">
-            <div class="product-img p4"><div class="badge-new">Novo</div><div class="shirt-preview"><div class="sp-sl"></div><div class="sp-sr"></div><div class="sp-body"></div><div class="sp-collar"></div><div class="sp-print" style="color:#F5F0E8">COAST</div></div></div>
-            <div class="product-info"><div class="product-name">Boxy Tide Drop</div><div class="product-sub">Corte boxy · Azul maré</div><div class="product-price"><span class="price-current">R$ 169</span></div><a class="product-cta" href="https://www.instagram.com/seaswell_nvg/" target="_blank" rel="noopener">Comprar via Instagram</a></div>
-          </div>
-          <div class="product-card">
-            <div class="product-img p5"><div class="shirt-preview"><div class="sp-sl"></div><div class="sp-sr"></div><div class="sp-body"></div><div class="sp-collar"></div><div class="sp-print" style="color:#C8A96E">DEEP</div></div></div>
-            <div class="product-info"><div class="product-name">Oversized Deep Tide</div><div class="product-sub">Estampa noturna · Roxo escuro</div><div class="product-price"><span class="price-current">R$ 159</span></div><a class="product-cta" href="https://www.instagram.com/seaswell_nvg/" target="_blank" rel="noopener">Comprar via Instagram</a></div>
-          </div>
+          <div class="product-card"><div class="product-img p1"><div class="badge-new">Novo</div><div class="shirt-preview"><div class="sp-sl"></div><div class="sp-sr"></div><div class="sp-body"></div><div class="sp-collar"></div><div class="sp-print" style="color:#C8A96E">SWELL</div></div></div><div class="product-info"><div class="product-name">Oversized Wave Navy</div><div class="product-sub">Estampa exclusiva · Algodão 270g</div><div class="product-price"><span class="price-current">R$ 159</span><span class="price-old">R$ 199</span></div><a class="product-cta" href="https://www.instagram.com/seaswell_nvg/" target="_blank">Comprar via Instagram</a></div></div>
+          <div class="product-card"><div class="product-img p2"><div class="badge-hot">🔥 Top</div><div class="shirt-preview"><div class="sp-sl"></div><div class="sp-sr"></div><div class="sp-body"></div><div class="sp-collar"></div><div class="sp-print" style="color:#1C1C1A">SEA</div></div></div><div class="product-info"><div class="product-name">Oversized Gold Coast</div><div class="product-sub">Lisa premium · Caramelo areia</div><div class="product-price"><span class="price-current">R$ 149</span></div><a class="product-cta" href="https://www.instagram.com/seaswell_nvg/" target="_blank">Comprar via Instagram</a></div></div>
+          <div class="product-card"><div class="product-img p3"><div class="shirt-preview"><div class="sp-sl"></div><div class="sp-sr"></div><div class="sp-body"></div><div class="sp-collar"></div><div class="sp-print" style="color:#1A3C6E">SS·24</div></div></div><div class="product-info"><div class="product-name">Oversized Off White</div><div class="product-sub">Estampa minimalista · Areia</div><div class="product-price"><span class="price-current">R$ 149</span><span class="price-old">R$ 179</span></div><a class="product-cta" href="https://www.instagram.com/seaswell_nvg/" target="_blank">Comprar via Instagram</a></div></div>
+          <div class="product-card"><div class="product-img p4"><div class="badge-new">Novo</div><div class="shirt-preview"><div class="sp-sl"></div><div class="sp-sr"></div><div class="sp-body"></div><div class="sp-collar"></div><div class="sp-print" style="color:#F5F0E8">COAST</div></div></div><div class="product-info"><div class="product-name">Boxy Tide Drop</div><div class="product-sub">Corte boxy · Azul maré</div><div class="product-price"><span class="price-current">R$ 169</span></div><a class="product-cta" href="https://www.instagram.com/seaswell_nvg/" target="_blank">Comprar via Instagram</a></div></div>
+          <div class="product-card"><div class="product-img p5"><div class="shirt-preview"><div class="sp-sl"></div><div class="sp-sr"></div><div class="sp-body"></div><div class="sp-collar"></div><div class="sp-print" style="color:#C8A96E">DEEP</div></div></div><div class="product-info"><div class="product-name">Oversized Deep Tide</div><div class="product-sub">Estampa noturna · Roxo escuro</div><div class="product-price"><span class="price-current">R$ 159</span></div><a class="product-cta" href="https://www.instagram.com/seaswell_nvg/" target="_blank">Comprar via Instagram</a></div></div>
         </div>
       </div>
       <div class="carousel-controls">
@@ -427,7 +348,7 @@ footer{background:var(--navy-dark);padding:3rem 2rem 1.5rem;border-top:1px solid
 </section>
 
 <!-- MANIFESTO -->
-<section class="manifesto" style="padding:6rem 2rem;">
+<section class="manifesto">
   <div class="manifesto-inner">
     <span class="quote-mark">"</span>
     <h2 class="manifesto-text">Não é só roupa.<br>É <span class="gold">o jeito que você<br>enfrenta o dia.</span></h2>
@@ -447,14 +368,14 @@ footer{background:var(--navy-dark);padding:3rem 2rem 1.5rem;border-top:1px solid
       <a class="btn-outline" href="https://www.instagram.com/seaswell_nvg/" target="_blank" rel="noopener">Ver no Instagram</a>
     </div>
     <div class="insta-grid">
-      <a class="insta-tile" href="https://www.instagram.com/seaswell_nvg/" target="_blank" rel="noopener"><span class="insta-tile-text">LOOK 01</span><div class="insta-overlay">↗</div></a>
-      <a class="insta-tile" href="https://www.instagram.com/seaswell_nvg/" target="_blank" rel="noopener"><span class="insta-tile-text">LOOK 02</span><div class="insta-overlay">↗</div></a>
-      <a class="insta-tile" href="https://www.instagram.com/seaswell_nvg/" target="_blank" rel="noopener"><span class="insta-tile-text">LOOK 03</span><div class="insta-overlay">↗</div></a>
-      <a class="insta-tile" href="https://www.instagram.com/seaswell_nvg/" target="_blank" rel="noopener"><span class="insta-tile-text">LOOK 04</span><div class="insta-overlay">↗</div></a>
-      <a class="insta-tile" href="https://www.instagram.com/seaswell_nvg/" target="_blank" rel="noopener"><span class="insta-tile-text">LOOK 05</span><div class="insta-overlay">↗</div></a>
-      <a class="insta-tile" href="https://www.instagram.com/seaswell_nvg/" target="_blank" rel="noopener"><span class="insta-tile-text">LOOK 06</span><div class="insta-overlay">↗</div></a>
-      <a class="insta-tile" href="https://www.instagram.com/seaswell_nvg/" target="_blank" rel="noopener"><span class="insta-tile-text">LOOK 07</span><div class="insta-overlay">↗</div></a>
-      <a class="insta-tile" href="https://www.instagram.com/seaswell_nvg/" target="_blank" rel="noopener"><span class="insta-tile-text">LOOK 08</span><div class="insta-overlay">↗</div></a>
+      <a class="insta-tile" href="https://www.instagram.com/seaswell_nvg/" target="_blank"><span class="insta-tile-text">LOOK 01</span><div class="insta-overlay">↗</div></a>
+      <a class="insta-tile" href="https://www.instagram.com/seaswell_nvg/" target="_blank"><span class="insta-tile-text">LOOK 02</span><div class="insta-overlay">↗</div></a>
+      <a class="insta-tile" href="https://www.instagram.com/seaswell_nvg/" target="_blank"><span class="insta-tile-text">LOOK 03</span><div class="insta-overlay">↗</div></a>
+      <a class="insta-tile" href="https://www.instagram.com/seaswell_nvg/" target="_blank"><span class="insta-tile-text">LOOK 04</span><div class="insta-overlay">↗</div></a>
+      <a class="insta-tile" href="https://www.instagram.com/seaswell_nvg/" target="_blank"><span class="insta-tile-text">LOOK 05</span><div class="insta-overlay">↗</div></a>
+      <a class="insta-tile" href="https://www.instagram.com/seaswell_nvg/" target="_blank"><span class="insta-tile-text">LOOK 06</span><div class="insta-overlay">↗</div></a>
+      <a class="insta-tile" href="https://www.instagram.com/seaswell_nvg/" target="_blank"><span class="insta-tile-text">LOOK 07</span><div class="insta-overlay">↗</div></a>
+      <a class="insta-tile" href="https://www.instagram.com/seaswell_nvg/" target="_blank"><span class="insta-tile-text">LOOK 08</span><div class="insta-overlay">↗</div></a>
     </div>
   </div>
 </section>
@@ -493,6 +414,37 @@ footer{background:var(--navy-dark);padding:3rem 2rem 1.5rem;border-top:1px solid
 </footer>
 
 <script>
+// COMPARADOR
+(function(){
+  const wrap=document.getElementById('compareWrap');
+  const fg=document.getElementById('shirtFg');
+  const line=document.getElementById('dividerLine');
+  const handle=document.getElementById('dividerHandle');
+  const badgeLeft=document.getElementById('badgeLeft');
+  let dragging=false;
+  function setPos(p){
+    p=Math.max(5,Math.min(95,p));
+    fg.style.clipPath=`inset(0 ${100-p}% 0 0)`;
+    line.style.left=p+'%';
+    handle.style.left=p+'%';
+    badgeLeft.style.opacity=p<20?'0':'1';
+  }
+  function getX(e){const r=wrap.getBoundingClientRect();const cx=e.touches?e.touches[0].clientX:e.clientX;return((cx-r.left)/r.width)*100;}
+  wrap.addEventListener('mousedown',e=>{dragging=true;setPos(getX(e));e.preventDefault();});
+  window.addEventListener('mousemove',e=>{if(dragging)setPos(getX(e));});
+  window.addEventListener('mouseup',()=>dragging=false);
+  wrap.addEventListener('touchstart',e=>{dragging=true;setPos(getX(e));},{passive:true});
+  window.addEventListener('touchmove',e=>{if(dragging){setPos(getX(e));e.preventDefault();}},{passive:false});
+  window.addEventListener('touchend',()=>dragging=false);
+  let intro=true,dir=1,animPct=50,af;
+  function introAnim(){if(!intro)return;animPct+=dir*0.4;if(animPct>=72)dir=-1;if(animPct<=28){intro=false;setPos(50);return;}setPos(animPct);af=requestAnimationFrame(introAnim);}
+  setTimeout(()=>introAnim(),700);
+  wrap.addEventListener('mousedown',()=>{intro=false;cancelAnimationFrame(af);});
+  wrap.addEventListener('touchstart',()=>{intro=false;cancelAnimationFrame(af);},{passive:true});
+  setPos(50);
+})();
+
+// CARROSSEL
 (function(){
   const track=document.getElementById('carouselTrack');
   const outer=document.getElementById('carouselOuter');
