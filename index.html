@@ -9,7 +9,6 @@
 :root{--navy:#1A3C6E;--sand:#F5F0E8;--charcoal:#1C1C1A;--gold:#C8A96E;--navy-dark:#0F2347;--navy-mid:#224d8a;}
 body{font-family:'Inter',sans-serif;background:#0f0f0d;color:var(--sand);overflow-x:hidden;}
 
-/* NAV */
 nav{position:sticky;top:0;z-index:100;background:rgba(15,15,13,0.55);backdrop-filter:blur(32px) saturate(200%);-webkit-backdrop-filter:blur(32px) saturate(200%);border-bottom:1px solid rgba(255,255,255,0.08);box-shadow:0 1px 0 rgba(200,169,110,0.15),0 4px 24px rgba(0,0,0,0.3);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;}
 .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:0.1em;color:var(--sand);}
 .nav-logo span{color:var(--gold);}
@@ -19,7 +18,6 @@ nav{position:sticky;top:0;z-index:100;background:rgba(15,15,13,0.55);backdrop-fi
 .nav-btn{background:rgba(200,169,110,0.15);backdrop-filter:blur(12px);border:1px solid rgba(200,169,110,0.4);box-shadow:inset 0 1px 0 rgba(200,169,110,0.3);color:var(--gold);padding:0.5rem 1.2rem;font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:all 0.2s;}
 .nav-btn:hover{background:var(--gold);color:var(--charcoal);}
 
-/* HERO */
 .hero{position:relative;width:100%;height:calc(100vh - 64px);min-height:500px;overflow:hidden;display:flex;align-items:flex-end;justify-content:center;padding-bottom:5rem;}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 50% 10%,#1a3060 0%,#0a0a0a 65%),radial-gradient(ellipse 50% 40% at 80% 80%,#0f2040 0%,transparent 60%),#080808;display:flex;align-items:center;justify-content:center;}
 .orb{position:absolute;border-radius:50%;filter:blur(60px);pointer-events:none;}
@@ -40,12 +38,11 @@ nav{position:sticky;top:0;z-index:100;background:rgba(15,15,13,0.55);backdrop-fi
 .cupom-code{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:0.2em;color:#fff;display:block;}
 .cupom-sub{font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:0.15rem;display:block;}
 
-/* TRUST BAR */
 .trust-bar{background:rgba(26,60,110,0.4);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(200,169,110,0.12);box-shadow:inset 0 1px 0 rgba(255,255,255,0.06);padding:1rem 2rem;display:flex;align-items:center;justify-content:center;gap:3rem;flex-wrap:wrap;}
 .trust-item{display:flex;align-items:center;gap:0.6rem;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(245,240,232,0.7);}
 .trust-icon{color:var(--gold);}
 
-/* ===== SEÇÃO COMPARADOR ===== */
+/* COMPARADOR */
 .compare-section{background:#0f0f0d;padding:5rem 2rem;position:relative;overflow:hidden;}
 .compare-section::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;background:rgba(26,60,110,0.07);filter:blur(100px);top:-200px;left:50%;transform:translateX(-50%);pointer-events:none;}
 .compare-header{text-align:center;margin-bottom:3.5rem;position:relative;z-index:1;}
@@ -59,7 +56,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(15,15,13,0.55);backdrop-fi
 .label-dot{width:8px;height:8px;border-radius:50%;}
 .label-left .label-dot{background:var(--gold);}
 .label-right .label-dot{background:rgba(245,240,232,0.2);}
-.compare-wrap{position:relative;max-width:700px;margin:0 auto;border-radius:16px;overflow:hidden;cursor:col-resize;user-select:none;border:1px solid rgba(255,255,255,0.06);box-shadow:0 24px 80px rgba(0,0,0,0.6),inset 0 1px 0 rgba(255,255,255,0.06);}
+.compare-wrap{position:relative;max-width:700px;margin:0 auto;border-radius:16px;overflow:hidden;cursor:col-resize;user-select:none;touch-action:none;border:1px solid rgba(255,255,255,0.06);box-shadow:0 24px 80px rgba(0,0,0,0.6),inset 0 1px 0 rgba(255,255,255,0.06);}
 .shirt-layer{display:block;width:100%;height:auto;}
 .shirt-bg{position:relative;width:100%;}
 .shirt-fg{position:absolute;top:0;left:0;width:100%;height:100%;clip-path:inset(0 50% 0 0);}
@@ -87,15 +84,48 @@ nav{position:sticky;top:0;z-index:100;background:rgba(15,15,13,0.55);backdrop-fi
 .feat-text{font-size:0.78rem;line-height:1.5;color:rgba(245,240,232,0.7);}
 .feat-col.good .feat-text{color:var(--sand);}
 
-/* CARROSSEL */
+/* ===== CARROSSEL COM SWIPE ===== */
 .products-section{background:#0a0a09;padding:5rem 0;position:relative;overflow:hidden;}
 .products-section::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:rgba(200,169,110,0.04);filter:blur(80px);bottom:-100px;left:-100px;pointer-events:none;}
 .products-inner{max-width:1100px;margin:0 auto;padding:0 2rem;}
 .products-header{margin-bottom:2rem;}
-.carousel-track-outer{overflow:hidden;}
-.carousel-track{display:flex;gap:1.25rem;transition:transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);}
-.product-card{flex:0 0 280px;background:rgba(255,255,255,0.04);backdrop-filter:blur(20px) saturate(150%);-webkit-backdrop-filter:blur(20px) saturate(150%);border:1px solid rgba(255,255,255,0.08);box-shadow:0 8px 32px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.08);border-radius:12px;overflow:hidden;transition:border-color 0.25s,transform 0.25s,box-shadow 0.25s;cursor:pointer;}
-.product-card:hover{border-color:rgba(200,169,110,0.35);transform:translateY(-6px);box-shadow:0 20px 48px rgba(0,0,0,0.4),0 0 0 1px rgba(200,169,110,0.15),inset 0 1px 0 rgba(255,255,255,0.12);}
+
+/* Wrapper com overflow oculto — sem padding-right pra cards ficarem cortados (indicando que tem mais) */
+.carousel-track-outer{
+  overflow:hidden;
+  /* cursor arraste no desktop */
+  cursor:grab;
+}
+.carousel-track-outer.grabbing{cursor:grabbing;}
+
+.carousel-track{
+  display:flex;
+  gap:1.25rem;
+  /* sem transition aqui — controlamos manualmente para swipe fluido */
+  will-change:transform;
+  /* impede seleção de texto durante arraste */
+  user-select:none;
+  -webkit-user-select:none;
+}
+.carousel-track.is-animating{
+  transition:transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+.product-card{
+  flex:0 0 280px;
+  background:rgba(255,255,255,0.04);
+  backdrop-filter:blur(20px) saturate(150%);
+  -webkit-backdrop-filter:blur(20px) saturate(150%);
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 8px 32px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.08);
+  border-radius:12px;overflow:hidden;
+  transition:border-color 0.25s,box-shadow 0.25s;
+  /* Impede que o card "roube" o evento de toque */
+  touch-action:pan-y;
+  -webkit-touch-action:pan-y;
+}
+.product-card:hover{border-color:rgba(200,169,110,0.35);box-shadow:0 20px 48px rgba(0,0,0,0.4),0 0 0 1px rgba(200,169,110,0.15),inset 0 1px 0 rgba(255,255,255,0.12);}
+
 .product-img{aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
 .product-img.p1{background:linear-gradient(160deg,#1a2a4a,#0f1d35);}
 .product-img.p2{background:linear-gradient(160deg,#2a2418,#1a1610);}
@@ -124,15 +154,33 @@ nav{position:sticky;top:0;z-index:100;background:rgba(15,15,13,0.55);backdrop-fi
 .price-old{font-size:0.75rem;color:rgba(245,240,232,0.3);text-decoration:line-through;}
 .product-cta{display:block;margin-top:0.8rem;background:rgba(200,169,110,0.08);backdrop-filter:blur(12px);border:1px solid rgba(200,169,110,0.25);box-shadow:inset 0 1px 0 rgba(200,169,110,0.15);color:var(--gold);padding:0.55rem;font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;border-radius:6px;transition:all 0.2s;width:100%;text-align:center;text-decoration:none;}
 .product-cta:hover{background:var(--gold);color:var(--charcoal);border-color:var(--gold);}
-.carousel-controls{display:flex;align-items:center;justify-content:flex-end;gap:0.6rem;margin-top:1.5rem;padding:0 2rem 0 0;}
+
+/* Hint de swipe — só aparece em touch */
+.swipe-hint{
+  display:none;
+  text-align:center;
+  margin-top:1rem;
+  font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;
+  color:rgba(245,240,232,0.25);
+  align-items:center;justify-content:center;gap:0.5rem;
+}
+.swipe-hint::before{content:'←';opacity:0.5;}
+.swipe-hint::after{content:'→';opacity:0.5;}
+@media(hover:none){.swipe-hint{display:flex;}}
+
+.carousel-controls{display:flex;align-items:center;justify-content:flex-end;gap:0.6rem;margin-top:1.2rem;padding:0 2rem 0 0;}
 .carousel-arrow{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.05);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.12);box-shadow:inset 0 1px 0 rgba(255,255,255,0.1);color:var(--gold);font-size:1.1rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;}
 .carousel-arrow:hover{background:var(--gold);color:var(--charcoal);border-color:var(--gold);}
 .carousel-arrow:disabled{opacity:0.2;cursor:default;}
+/* Setas sumidas no mobile já que tem swipe */
+@media(hover:none){.carousel-controls{display:none;}}
 .carousel-dots{display:flex;gap:0.4rem;align-items:center;margin-right:auto;}
 .dot{width:6px;height:6px;border-radius:50%;background:rgba(200,169,110,0.25);transition:all 0.2s;cursor:pointer;}
 .dot.active{background:var(--gold);width:18px;border-radius:3px;}
+/* dots sempre visíveis */
+.dots-row{display:flex;justify-content:center;margin-top:1.2rem;}
+.dots-row .carousel-dots{margin:0;}
 
-/* MANIFESTO */
 .manifesto{background:linear-gradient(135deg,#0d1e38 0%,#1a3c6e 60%,#0f2347 100%);padding:6rem 2rem;text-align:center;position:relative;overflow:hidden;}
 .manifesto::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 100%,rgba(200,169,110,0.08) 0%,transparent 60%);}
 .manifesto::after{content:'';position:absolute;width:400px;height:400px;border-radius:50%;background:rgba(200,169,110,0.06);filter:blur(60px);top:-100px;right:-50px;pointer-events:none;}
@@ -142,7 +190,6 @@ nav{position:sticky;top:0;z-index:100;background:rgba(15,15,13,0.55);backdrop-fi
 .manifesto-text .gold{color:var(--gold);}
 .manifesto-sub{font-size:0.9rem;line-height:1.8;color:rgba(245,240,232,0.55);max-width:500px;margin:0 auto 2.5rem;}
 
-/* INSTAGRAM */
 .insta-section{background:#080807;padding:5rem 2rem;}
 .insta-inner{max-width:1100px;margin:0 auto;}
 .insta-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:2rem;flex-wrap:wrap;gap:1rem;}
@@ -162,7 +209,6 @@ nav{position:sticky;top:0;z-index:100;background:rgba(15,15,13,0.55);backdrop-fi
 .btn-outline{background:rgba(255,255,255,0.05);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(245,240,232,0.2);box-shadow:inset 0 1px 0 rgba(255,255,255,0.1);color:var(--sand);padding:0.9rem 2.2rem;font-size:0.8rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:all 0.2s;text-decoration:none;display:inline-block;}
 .btn-outline:hover{border-color:var(--gold);color:var(--gold);}
 
-/* FOOTER */
 footer{background:rgba(8,14,28,0.98);backdrop-filter:blur(20px);padding:3rem 2rem 1.5rem;border-top:1px solid rgba(200,169,110,0.12);}
 .footer-inner{max-width:1100px;margin:0 auto;}
 .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;margin-bottom:3rem;}
@@ -177,7 +223,6 @@ footer{background:rgba(8,14,28,0.98);backdrop-filter:blur(20px);padding:3rem 2re
 .footer-bottom{padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:space-between;font-size:0.72rem;color:rgba(245,240,232,0.25);flex-wrap:wrap;gap:0.5rem;}
 .footer-bottom a{color:rgba(245,240,232,0.25);text-decoration:none;}
 
-/* WHATSAPP */
 .whatsapp-float{position:fixed;bottom:2rem;right:2rem;width:52px;height:52px;border-radius:50%;background:rgba(37,211,102,0.85);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.2);box-shadow:0 4px 20px rgba(37,211,102,0.35),inset 0 1px 0 rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:999;transition:transform 0.2s;text-decoration:none;}
 .whatsapp-float:hover{transform:scale(1.08);}
 .whatsapp-float svg{width:26px;height:26px;fill:white;}
@@ -186,7 +231,7 @@ footer{background:rgba(8,14,28,0.98);backdrop-filter:blur(20px);padding:3rem 2re
   .nav-links{display:none;}
   .footer-top{grid-template-columns:1fr;gap:2rem;}
   .insta-grid{grid-template-columns:repeat(2,1fr);}
-  .product-card{flex:0 0 230px;}
+  .product-card{flex:0 0 78vw;max-width:300px;}
   .hero{padding-bottom:3.5rem;}
   .compare-features{grid-template-columns:1fr;}
 }
@@ -198,7 +243,6 @@ footer{background:rgba(8,14,28,0.98);backdrop-filter:blur(20px);padding:3rem 2re
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">SEA <span>SWELL</span></div>
   <ul class="nav-links">
@@ -210,7 +254,6 @@ footer{background:rgba(8,14,28,0.98);backdrop-filter:blur(20px);padding:3rem 2re
   <button class="nav-btn" onclick="window.open('https://www.instagram.com/seaswell_nvg/','_blank')">Ver Kits</button>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-bg">
     <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
@@ -221,8 +264,8 @@ footer{background:rgba(8,14,28,0.98);backdrop-filter:blur(20px);padding:3rem 2re
   <div class="hero-content">
     <h1 class="hero-title">NOVA COLEÇÃO<br><span class="gold">DISPONÍVEL</span></h1>
     <div class="hero-ctas">
-      <a class="btn-comprar" href="https://www.instagram.com/seaswell_nvg/" target="_blank" rel="noopener">Comprar Agora</a>
-      <a class="cupom-box" href="https://wa.me/5547991241755?text=Quero+usar+o+cupom+SWELL10!" target="_blank" rel="noopener">
+      <a class="btn-comprar" href="https://www.instagram.com/seaswell_nvg/" target="_blank">Comprar Agora</a>
+      <a class="cupom-box" href="https://wa.me/5547991241755?text=Quero+usar+o+cupom+SWELL10!" target="_blank">
         <span class="cupom-code">SWELL10</span>
         <span class="cupom-sub">Use na sua primeira compra</span>
       </a>
@@ -230,7 +273,6 @@ footer{background:rgba(8,14,28,0.98);backdrop-filter:blur(20px);padding:3rem 2re
   </div>
 </section>
 
-<!-- TRUST BAR -->
 <div class="trust-bar">
   <div class="trust-item"><span class="trust-icon">✦</span> Frete grátis acima de R$ 299</div>
   <div class="trust-item"><span class="trust-icon">✦</span> Primeira troca gratuita</div>
@@ -238,7 +280,6 @@ footer{background:rgba(8,14,28,0.98);backdrop-filter:blur(20px);padding:3rem 2re
   <div class="trust-item"><span class="trust-icon">✦</span> Enviamos para todo o Brasil</div>
 </div>
 
-<!-- COMPARADOR -->
 <div class="compare-section">
   <div class="compare-header">
     <div class="section-eyebrow">Comparação real</div>
@@ -319,7 +360,7 @@ footer{background:rgba(8,14,28,0.98);backdrop-filter:blur(20px);padding:3rem 2re
   </div>
 </div>
 
-<!-- PRODUTOS -->
+<!-- PRODUTOS COM SWIPE -->
 <section class="products-section">
   <div class="products-inner">
     <div class="products-header">
@@ -327,45 +368,42 @@ footer{background:rgba(8,14,28,0.98);backdrop-filter:blur(20px);padding:3rem 2re
       <h2 class="section-title">Escolha seu drop</h2>
     </div>
   </div>
-  <div class="products-inner" style="padding-right:0;">
-    <div>
-      <div class="carousel-track-outer" id="carouselOuter">
-        <div class="carousel-track" id="carouselTrack">
-          <div class="product-card"><div class="product-img p1"><div class="badge-new">Novo</div><div class="shirt-preview"><div class="sp-sl"></div><div class="sp-sr"></div><div class="sp-body"></div><div class="sp-collar"></div><div class="sp-print" style="color:#C8A96E">SWELL</div></div></div><div class="product-info"><div class="product-name">Oversized Wave Navy</div><div class="product-sub">Estampa exclusiva · Algodão 270g</div><div class="product-price"><span class="price-current">R$ 159</span><span class="price-old">R$ 199</span></div><a class="product-cta" href="https://www.instagram.com/seaswell_nvg/" target="_blank">Comprar via Instagram</a></div></div>
-          <div class="product-card"><div class="product-img p2"><div class="badge-hot">🔥 Top</div><div class="shirt-preview"><div class="sp-sl"></div><div class="sp-sr"></div><div class="sp-body"></div><div class="sp-collar"></div><div class="sp-print" style="color:#1C1C1A">SEA</div></div></div><div class="product-info"><div class="product-name">Oversized Gold Coast</div><div class="product-sub">Lisa premium · Caramelo areia</div><div class="product-price"><span class="price-current">R$ 149</span></div><a class="product-cta" href="https://www.instagram.com/seaswell_nvg/" target="_blank">Comprar via Instagram</a></div></div>
-          <div class="product-card"><div class="product-img p3"><div class="shirt-preview"><div class="sp-sl"></div><div class="sp-sr"></div><div class="sp-body"></div><div class="sp-collar"></div><div class="sp-print" style="color:#1A3C6E">SS·24</div></div></div><div class="product-info"><div class="product-name">Oversized Off White</div><div class="product-sub">Estampa minimalista · Areia</div><div class="product-price"><span class="price-current">R$ 149</span><span class="price-old">R$ 179</span></div><a class="product-cta" href="https://www.instagram.com/seaswell_nvg/" target="_blank">Comprar via Instagram</a></div></div>
-          <div class="product-card"><div class="product-img p4"><div class="badge-new">Novo</div><div class="shirt-preview"><div class="sp-sl"></div><div class="sp-sr"></div><div class="sp-body"></div><div class="sp-collar"></div><div class="sp-print" style="color:#F5F0E8">COAST</div></div></div><div class="product-info"><div class="product-name">Boxy Tide Drop</div><div class="product-sub">Corte boxy · Azul maré</div><div class="product-price"><span class="price-current">R$ 169</span></div><a class="product-cta" href="https://www.instagram.com/seaswell_nvg/" target="_blank">Comprar via Instagram</a></div></div>
-          <div class="product-card"><div class="product-img p5"><div class="shirt-preview"><div class="sp-sl"></div><div class="sp-sr"></div><div class="sp-body"></div><div class="sp-collar"></div><div class="sp-print" style="color:#C8A96E">DEEP</div></div></div><div class="product-info"><div class="product-name">Oversized Deep Tide</div><div class="product-sub">Estampa noturna · Roxo escuro</div><div class="product-price"><span class="price-current">R$ 159</span></div><a class="product-cta" href="https://www.instagram.com/seaswell_nvg/" target="_blank">Comprar via Instagram</a></div></div>
-        </div>
+  <div class="products-inner" style="padding-right:0;overflow:visible;">
+    <div class="carousel-track-outer" id="carouselOuter">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="product-card"><div class="product-img p1"><div class="badge-new">Novo</div><div class="shirt-preview"><div class="sp-sl"></div><div class="sp-sr"></div><div class="sp-body"></div><div class="sp-collar"></div><div class="sp-print" style="color:#C8A96E">SWELL</div></div></div><div class="product-info"><div class="product-name">Oversized Wave Navy</div><div class="product-sub">Estampa exclusiva · Algodão 270g</div><div class="product-price"><span class="price-current">R$ 159</span><span class="price-old">R$ 199</span></div><a class="product-cta" href="https://www.instagram.com/seaswell_nvg/" target="_blank">Comprar via Instagram</a></div></div>
+        <div class="product-card"><div class="product-img p2"><div class="badge-hot">🔥 Top</div><div class="shirt-preview"><div class="sp-sl"></div><div class="sp-sr"></div><div class="sp-body"></div><div class="sp-collar"></div><div class="sp-print" style="color:#1C1C1A">SEA</div></div></div><div class="product-info"><div class="product-name">Oversized Gold Coast</div><div class="product-sub">Lisa premium · Caramelo areia</div><div class="product-price"><span class="price-current">R$ 149</span></div><a class="product-cta" href="https://www.instagram.com/seaswell_nvg/" target="_blank">Comprar via Instagram</a></div></div>
+        <div class="product-card"><div class="product-img p3"><div class="shirt-preview"><div class="sp-sl"></div><div class="sp-sr"></div><div class="sp-body"></div><div class="sp-collar"></div><div class="sp-print" style="color:#1A3C6E">SS·24</div></div></div><div class="product-info"><div class="product-name">Oversized Off White</div><div class="product-sub">Estampa minimalista · Areia</div><div class="product-price"><span class="price-current">R$ 149</span><span class="price-old">R$ 179</span></div><a class="product-cta" href="https://www.instagram.com/seaswell_nvg/" target="_blank">Comprar via Instagram</a></div></div>
+        <div class="product-card"><div class="product-img p4"><div class="badge-new">Novo</div><div class="shirt-preview"><div class="sp-sl"></div><div class="sp-sr"></div><div class="sp-body"></div><div class="sp-collar"></div><div class="sp-print" style="color:#F5F0E8">COAST</div></div></div><div class="product-info"><div class="product-name">Boxy Tide Drop</div><div class="product-sub">Corte boxy · Azul maré</div><div class="product-price"><span class="price-current">R$ 169</span></div><a class="product-cta" href="https://www.instagram.com/seaswell_nvg/" target="_blank">Comprar via Instagram</a></div></div>
+        <div class="product-card"><div class="product-img p5"><div class="shirt-preview"><div class="sp-sl"></div><div class="sp-sr"></div><div class="sp-body"></div><div class="sp-collar"></div><div class="sp-print" style="color:#C8A96E">DEEP</div></div></div><div class="product-info"><div class="product-name">Oversized Deep Tide</div><div class="product-sub">Estampa noturna · Roxo escuro</div><div class="product-price"><span class="price-current">R$ 159</span></div><a class="product-cta" href="https://www.instagram.com/seaswell_nvg/" target="_blank">Comprar via Instagram</a></div></div>
       </div>
-      <div class="carousel-controls">
-        <div class="carousel-dots" id="carouselDots"></div>
-        <button class="carousel-arrow" id="btnPrev">&#8592;</button>
-        <button class="carousel-arrow" id="btnNext">&#8594;</button>
-      </div>
+    </div>
+    <!-- Hint swipe (só mobile) -->
+    <div class="swipe-hint">Arraste para ver mais</div>
+    <!-- Dots sempre visíveis -->
+    <div class="dots-row"><div class="carousel-dots" id="carouselDots"></div></div>
+    <!-- Setas (só desktop) -->
+    <div class="carousel-controls">
+      <button class="carousel-arrow" id="btnPrev">&#8592;</button>
+      <button class="carousel-arrow" id="btnNext">&#8594;</button>
     </div>
   </div>
 </section>
 
-<!-- MANIFESTO -->
 <section class="manifesto">
   <div class="manifesto-inner">
     <span class="quote-mark">"</span>
     <h2 class="manifesto-text">Não é só roupa.<br>É <span class="gold">o jeito que você<br>enfrenta o dia.</span></h2>
     <p class="manifesto-sub">A Sea Swell nasceu na costa, com a identidade de quem prefere o vento salgado ao ar condicionado. Cada peça carrega a energia do litoral — livre, crua, sem filtro.</p>
-    <a class="btn-comprar" href="https://www.instagram.com/seaswell_nvg/" target="_blank" rel="noopener">Seguir @seaswell_nvg</a>
+    <a class="btn-comprar" href="https://www.instagram.com/seaswell_nvg/" target="_blank">Seguir @seaswell_nvg</a>
   </div>
 </section>
 
-<!-- INSTAGRAM -->
 <section class="insta-section">
   <div class="insta-inner">
     <div class="insta-header">
-      <div>
-        <div class="section-eyebrow">Nossas fotos</div>
-        <h2 class="section-title" style="margin-bottom:0">@seaswell_nvg</h2>
-      </div>
-      <a class="btn-outline" href="https://www.instagram.com/seaswell_nvg/" target="_blank" rel="noopener">Ver no Instagram</a>
+      <div><div class="section-eyebrow">Nossas fotos</div><h2 class="section-title" style="margin-bottom:0">@seaswell_nvg</h2></div>
+      <a class="btn-outline" href="https://www.instagram.com/seaswell_nvg/" target="_blank">Ver no Instagram</a>
     </div>
     <div class="insta-grid">
       <a class="insta-tile" href="https://www.instagram.com/seaswell_nvg/" target="_blank"><span class="insta-tile-text">LOOK 01</span><div class="insta-overlay">↗</div></a>
@@ -380,41 +418,19 @@ footer{background:rgba(8,14,28,0.98);backdrop-filter:blur(20px);padding:3rem 2re
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
-      <div class="footer-brand">
-        <div class="logo">SEA <span>SWELL</span></div>
-        <p>Streetwear litorâneo feito pra quem carrega a praia dentro. Peças com atitude, qualidade e identidade do litoral brasileiro.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Navegação</h4>
-        <ul>
-          <li><a href="https://www.instagram.com/seaswell_nvg/" target="_blank">Coleção completa</a></li>
-          <li><a href="https://www.instagram.com/seaswell_nvg/" target="_blank">Estampas exclusivas</a></li>
-          <li><a href="https://www.instagram.com/seaswell_nvg/" target="_blank">Kits e combos</a></li>
-          <li><a href="https://www.instagram.com/seaswell_nvg/" target="_blank">Sobre a marca</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Atendimento</h4>
-        <ul>
-          <li><a href="https://wa.me/5547991241755" target="_blank">WhatsApp</a></li>
-          <li><a href="https://wa.me/5547991241755" target="_blank">Trocas e devoluções</a></li>
-          <li><a href="https://www.instagram.com/seaswell_nvg/" target="_blank">Instagram</a></li>
-        </ul>
-      </div>
+      <div class="footer-brand"><div class="logo">SEA <span>SWELL</span></div><p>Streetwear litorâneo feito pra quem carrega a praia dentro. Peças com atitude, qualidade e identidade do litoral brasileiro.</p></div>
+      <div class="footer-col"><h4>Navegação</h4><ul><li><a href="https://www.instagram.com/seaswell_nvg/" target="_blank">Coleção completa</a></li><li><a href="https://www.instagram.com/seaswell_nvg/" target="_blank">Estampas exclusivas</a></li><li><a href="https://www.instagram.com/seaswell_nvg/" target="_blank">Kits e combos</a></li><li><a href="https://www.instagram.com/seaswell_nvg/" target="_blank">Sobre a marca</a></li></ul></div>
+      <div class="footer-col"><h4>Atendimento</h4><ul><li><a href="https://wa.me/5547991241755" target="_blank">WhatsApp</a></li><li><a href="https://wa.me/5547991241755" target="_blank">Trocas e devoluções</a></li><li><a href="https://www.instagram.com/seaswell_nvg/" target="_blank">Instagram</a></li></ul></div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2025 Sea Swell — Navegantes, SC</span>
-      <div style="display:flex;gap:1.5rem;"><a href="#">Privacidade</a><a href="#">Termos</a></div>
-    </div>
+    <div class="footer-bottom"><span>© 2025 Sea Swell — Navegantes, SC</span><div style="display:flex;gap:1.5rem;"><a href="#">Privacidade</a><a href="#">Termos</a></div></div>
   </div>
 </footer>
 
 <script>
-// COMPARADOR
+// ===== COMPARADOR =====
 (function(){
   const wrap=document.getElementById('compareWrap');
   const fg=document.getElementById('shirtFg');
@@ -422,13 +438,7 @@ footer{background:rgba(8,14,28,0.98);backdrop-filter:blur(20px);padding:3rem 2re
   const handle=document.getElementById('dividerHandle');
   const badgeLeft=document.getElementById('badgeLeft');
   let dragging=false;
-  function setPos(p){
-    p=Math.max(5,Math.min(95,p));
-    fg.style.clipPath=`inset(0 ${100-p}% 0 0)`;
-    line.style.left=p+'%';
-    handle.style.left=p+'%';
-    badgeLeft.style.opacity=p<20?'0':'1';
-  }
+  function setPos(p){p=Math.max(5,Math.min(95,p));fg.style.clipPath=`inset(0 ${100-p}% 0 0)`;line.style.left=p+'%';handle.style.left=p+'%';badgeLeft.style.opacity=p<20?'0':'1';}
   function getX(e){const r=wrap.getBoundingClientRect();const cx=e.touches?e.touches[0].clientX:e.clientX;return((cx-r.left)/r.width)*100;}
   wrap.addEventListener('mousedown',e=>{dragging=true;setPos(getX(e));e.preventDefault();});
   window.addEventListener('mousemove',e=>{if(dragging)setPos(getX(e));});
@@ -439,33 +449,149 @@ footer{background:rgba(8,14,28,0.98);backdrop-filter:blur(20px);padding:3rem 2re
   let intro=true,dir=1,animPct=50,af;
   function introAnim(){if(!intro)return;animPct+=dir*0.4;if(animPct>=72)dir=-1;if(animPct<=28){intro=false;setPos(50);return;}setPos(animPct);af=requestAnimationFrame(introAnim);}
   setTimeout(()=>introAnim(),700);
-  wrap.addEventListener('mousedown',()=>{intro=false;cancelAnimationFrame(af);});
-  wrap.addEventListener('touchstart',()=>{intro=false;cancelAnimationFrame(af);},{passive:true});
+  wrap.addEventListener('mousedown',()=>{intro=false;cancelAnimationFrame(af);},{once:true});
+  wrap.addEventListener('touchstart',()=>{intro=false;cancelAnimationFrame(af);},{passive:true,once:true});
   setPos(50);
 })();
 
-// CARROSSEL
+// ===== CARROSSEL COM SWIPE NATIVO =====
 (function(){
-  const track=document.getElementById('carouselTrack');
-  const outer=document.getElementById('carouselOuter');
-  const btnPrev=document.getElementById('btnPrev');
-  const btnNext=document.getElementById('btnNext');
-  const dotsEl=document.getElementById('carouselDots');
-  let current=0;
-  function getCardWidth(){const c=track.querySelector('.product-card');if(!c)return 280;return c.offsetWidth+(parseFloat(window.getComputedStyle(track).gap)||20);}
+  const outer  = document.getElementById('carouselOuter');
+  const track  = document.getElementById('carouselTrack');
+  const dotsEl = document.getElementById('carouselDots');
+  const btnPrev= document.getElementById('btnPrev');
+  const btnNext= document.getElementById('btnNext');
+
+  let current = 0;
+  let isDragging = false;
+  let startX = 0;
+  let startScrollLeft = 0;
+  let dragDelta = 0;
+  let velocity = 0;
+  let lastX = 0;
+  let lastTime = 0;
+
+  function getCardWidth(){
+    const c = track.querySelector('.product-card');
+    if(!c) return 280;
+    return c.offsetWidth + (parseFloat(window.getComputedStyle(track).gap)||20);
+  }
   function getVisible(){return Math.max(1,Math.floor(outer.offsetWidth/getCardWidth()));}
   function totalCards(){return track.querySelectorAll('.product-card').length;}
   function maxIndex(){return Math.max(0,totalCards()-getVisible());}
-  function buildDots(){dotsEl.innerHTML='';for(let i=0;i<=maxIndex();i++){const d=document.createElement('div');d.className='dot'+(i===current?' active':'');d.onclick=()=>goTo(i);dotsEl.appendChild(d);}}
-  function updateDots(){dotsEl.querySelectorAll('.dot').forEach((d,i)=>d.className='dot'+(i===current?' active':''));}
-  function goTo(idx){current=Math.max(0,Math.min(idx,maxIndex()));track.style.transform=`translateX(-${current*getCardWidth()}px)`;btnPrev.disabled=current===0;btnNext.disabled=current>=maxIndex();updateDots();}
-  btnPrev.addEventListener('click',()=>goTo(current-1));
-  btnNext.addEventListener('click',()=>goTo(current+1));
-  let rt;window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{buildDots();goTo(Math.min(current,maxIndex()));},100);});
-  buildDots();goTo(0);
-  let sx=0;
-  outer.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;},{passive:true});
-  outer.addEventListener('touchend',e=>{const d=sx-e.changedTouches[0].clientX;if(Math.abs(d)>40){d>0?goTo(current+1):goTo(current-1);}},{passive:true});
+
+  function buildDots(){
+    dotsEl.innerHTML='';
+    for(let i=0;i<=maxIndex();i++){
+      const d=document.createElement('div');
+      d.className='dot'+(i===current?' active':'');
+      d.onclick=()=>snapTo(i);
+      dotsEl.appendChild(d);
+    }
+  }
+  function updateDots(){
+    dotsEl.querySelectorAll('.dot').forEach((d,i)=>d.className='dot'+(i===current?' active':''));
+  }
+
+  function snapTo(idx){
+    current = Math.max(0,Math.min(idx,maxIndex()));
+    track.classList.add('is-animating');
+    track.style.transform = `translateX(-${current * getCardWidth()}px)`;
+    if(btnPrev) btnPrev.disabled = current===0;
+    if(btnNext) btnNext.disabled = current>=maxIndex();
+    updateDots();
+  }
+
+  track.addEventListener('transitionend',()=>track.classList.remove('is-animating'));
+
+  // ---- MOUSE DRAG (desktop) ----
+  outer.addEventListener('mousedown', e=>{
+    isDragging=true;
+    startX=e.clientX;
+    dragDelta=0;
+    velocity=0;
+    lastX=e.clientX;
+    lastTime=Date.now();
+    outer.classList.add('grabbing');
+    track.classList.remove('is-animating');
+    e.preventDefault();
+  });
+  window.addEventListener('mousemove', e=>{
+    if(!isDragging) return;
+    const now=Date.now();
+    const dt=now-lastTime||1;
+    velocity=(e.clientX-lastX)/dt;
+    lastX=e.clientX;
+    lastTime=now;
+    dragDelta=e.clientX-startX;
+    const base=-current*getCardWidth();
+    track.style.transform=`translateX(${base+dragDelta}px)`;
+  });
+  window.addEventListener('mouseup', ()=>{
+    if(!isDragging) return;
+    isDragging=false;
+    outer.classList.remove('grabbing');
+    resolveSwipe();
+  });
+
+  // ---- TOUCH (mobile) ----
+  outer.addEventListener('touchstart', e=>{
+    isDragging=true;
+    startX=e.touches[0].clientX;
+    dragDelta=0;
+    velocity=0;
+    lastX=e.touches[0].clientX;
+    lastTime=Date.now();
+    track.classList.remove('is-animating');
+  },{passive:true});
+
+  outer.addEventListener('touchmove', e=>{
+    if(!isDragging) return;
+    const now=Date.now();
+    const dt=now-lastTime||1;
+    const cx=e.touches[0].clientX;
+    velocity=(cx-lastX)/dt;
+    lastX=cx;
+    lastTime=now;
+    dragDelta=cx-startX;
+    // Só move horizontalmente; deixa scroll vertical funcionar
+    if(Math.abs(dragDelta)>8){
+      e.preventDefault();
+      const base=-current*getCardWidth();
+      track.style.transform=`translateX(${base+dragDelta}px)`;
+    }
+  },{passive:false});
+
+  outer.addEventListener('touchend', ()=>{
+    if(!isDragging) return;
+    isDragging=false;
+    resolveSwipe();
+  });
+
+  function resolveSwipe(){
+    const cw = getCardWidth();
+    // threshold: 80px OU velocidade acima de 0.4px/ms
+    const byDist = Math.abs(dragDelta) > 80;
+    const byVel  = Math.abs(velocity) > 0.4;
+    if(byDist || byVel){
+      if(dragDelta < 0) snapTo(current+1);
+      else              snapTo(current-1);
+    } else {
+      snapTo(current); // volta pro snap atual
+    }
+  }
+
+  if(btnPrev) btnPrev.addEventListener('click',()=>snapTo(current-1));
+  if(btnNext) btnNext.addEventListener('click',()=>snapTo(current+1));
+
+  let rt;
+  window.addEventListener('resize',()=>{
+    clearTimeout(rt);
+    rt=setTimeout(()=>{buildDots();snapTo(Math.min(current,maxIndex()));},100);
+  });
+
+  buildDots();
+  snapTo(0);
 })();
 </script>
 </body>
